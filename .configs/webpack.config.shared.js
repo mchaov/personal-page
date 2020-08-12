@@ -73,13 +73,13 @@ module.exports = (mode, outputFolder, entryPath, tsconfigPath, fileSuffix, srcRo
             ],
         },
         optimization: {
-            splitChunks: {
-                chunks: "initial",
-                name: "vendor"
-            },
-            runtimeChunk: {
-                name: "manifest",
-            }
+            // splitChunks: {
+            //     chunks: "initial",
+            //     name: "vendor"
+            // },
+            // runtimeChunk: {
+            //     name: "manifest",
+            // }
         },
         plugins: [
             new webpack.DefinePlugin({
@@ -95,12 +95,17 @@ module.exports = (mode, outputFolder, entryPath, tsconfigPath, fileSuffix, srcRo
                     {
                         context: inputRoot,
                         from: "**/*.html",
-                        to: outRoot,
+                        to: outRoot
+                    },
+                    {
+                        context: inputRoot,
+                        from: "i/*.*",
+                        to: outRoot
                     },
                     {
                         context: inputRoot,
                         from: "**/*.ico",
-                        to: outRoot,
+                        to: outRoot
                     }
                 ],
             }),
