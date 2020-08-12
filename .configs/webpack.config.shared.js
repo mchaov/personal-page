@@ -1,5 +1,6 @@
 const path = require("path");
 const webpack = require("webpack");
+const hljs = require("highlight.js");
 const CopyPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
@@ -42,7 +43,7 @@ module.exports = (mode, outputFolder, entryPath, tsconfigPath, fileSuffix, srcRo
                     }],
                 },
                 {
-                    test: /\.(less)$/,
+                    test: /\.(less|css)$/,
                     use: [
                         MiniCssExtractPlugin.loader,
                         {
@@ -70,6 +71,24 @@ module.exports = (mode, outputFolder, entryPath, tsconfigPath, fileSuffix, srcRo
 
                     ],
                 },
+                {
+                    test: /\.md$/,
+                    use: [
+                        {
+                            loader: "html-loader"
+                        },
+                        {
+                            loader: "markdown-loader",
+                            options: {
+                                gfm: true,
+                                highlight: (code, lang, callback) => {
+                                    return hljs.highlight(lang, code).value
+                                }
+                                // https://marked.js.org/#/USING_ADVANCED.md#options
+                            }
+                        }
+                    ]
+                }
             ],
         },
         optimization: {
