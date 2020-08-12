@@ -46,6 +46,7 @@ typings/
 
 # TypeScript cache
 *.tsbuildinfo
+tsc-emit/
 
 # Optional npm cache directory
 .npm
