@@ -10,7 +10,6 @@ function isProd(mode) {
 
 module.exports = (mode, outputFolder, entryPath, tsconfigPath, fileSuffix, srcRoot) => {
     const inputRoot = path.resolve(__dirname, "../", "packages", outputFolder);
-    console.log("###", inputRoot)
     const outRoot = path.resolve(__dirname, "../", "dist", outputFolder);
     return {
         mode: mode,
@@ -80,8 +79,7 @@ module.exports = (mode, outputFolder, entryPath, tsconfigPath, fileSuffix, srcRo
             },
             runtimeChunk: {
                 name: "manifest",
-            },
-
+            }
         },
         plugins: [
             new webpack.DefinePlugin({
@@ -97,6 +95,11 @@ module.exports = (mode, outputFolder, entryPath, tsconfigPath, fileSuffix, srcRo
                     {
                         context: inputRoot,
                         from: "**/*.html",
+                        to: outRoot,
+                    },
+                    {
+                        context: inputRoot,
+                        from: "**/*.ico",
                         to: outRoot,
                     }
                 ],
