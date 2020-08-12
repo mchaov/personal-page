@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "My personal page.",
   "scripts": {
-    "build:vercel": "exit 0",
+    "build:vercel": "npm run webpack",
     "webpack:dev": "webpack --config ./.configs/webpack.config.package.dev.js -w",
     "webpack": "webpack --config ./.configs/webpack.config.package.prod.js -p",
     "test": "exit 0 && jest --bail --config ./.configs/jest.config.package.js",
