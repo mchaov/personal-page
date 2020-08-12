@@ -1,0 +1,19 @@
+{
+  "name": "personal-page",
+  "version": "1.0.0",
+  "description": "My personal page.",
+  "scripts": {
+    "test": "exit 0",
+    "build:vercel": "exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mchaov/personal-page.git"
+  },
+  "author": "Martin Chaov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mchaov/personal-page/issues"
+  },
+  "homepage": "https://github.com/mchaov/personal-page#readme"
+}
