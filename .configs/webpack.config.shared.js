@@ -1,5 +1,6 @@
 const path = require("path");
 const webpack = require("webpack");
+const CopyPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
@@ -8,13 +9,16 @@ function isProd(mode) {
 }
 
 module.exports = (mode, outputFolder, entryPath, tsconfigPath, fileSuffix, srcRoot) => {
+    const inputRoot = path.resolve(__dirname, "../", "packages", outputFolder);
+    console.log("###", inputRoot)
+    const outRoot = path.resolve(__dirname, "../", "dist", outputFolder);
     return {
         mode: mode,
         entry: { index: entryPath },
         devtool: "source-map",
         output: {
             filename: `[name]${fileSuffix && "." + fileSuffix}.js`,
-            path: path.resolve(__dirname, "../", "dist", outputFolder),
+            path: outRoot,
             library: "__APP",
             libraryTarget: "umd"
         },
@@ -87,6 +91,15 @@ module.exports = (mode, outputFolder, entryPath, tsconfigPath, fileSuffix, srcRo
             }),
             new MiniCssExtractPlugin({
                 filename: `[name]${fileSuffix && "." + fileSuffix}.css`,
+            }),
+            new CopyPlugin({
+                patterns: [
+                    {
+                        context: inputRoot,
+                        from: "**/*.html",
+                        to: outRoot,
+                    }
+                ],
             }),
             ...isProd(mode) ? [
                 new BundleAnalyzerPlugin({
