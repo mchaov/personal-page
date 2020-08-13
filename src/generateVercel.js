@@ -8,42 +8,47 @@ const vercelPath = path.join(rootPath, "vercel.json");
 const sitePath = path.resolve(__dirname, "..", "site");
 const articlesPath = path.join(sitePath, "articles");
 
-const template = (routes) => `{
-    "name": "mchaov personal blog",
-    "routes": [
-        {
-            "src": "/(.*)",
-            "headers": {
-                "Cache-Control": "max-age=31536000",
-                "Link": "</css/main.css>; rel=preload; as=style"
-            },
-            "continue": true
+const template = (routes) => {
+    const defaultRoutes = [];
+
+    defaultRoutes.push({
+        src: "/(.*)",
+        headers: {
+            "Cache-Control": "max-age=31536000",
+            "Link": "</css/main.css>; rel=preload; as=style"
         },
-        {
-            "src": "/",
-            "dest": "/index.html"
-        },
-        ${
-    routes
+        continue: true
+    });
+
+    defaultRoutes.push({
+        src: "/",
+        dest: "/index.html"
+    });
+
+    const dynamicRoutes = routes
         .map(x => {
-            return `{
-                "src": "/${x}",
-                "dest": "/${x}.html"
-            }`
-        })
-        .join(",")
+            return {
+                src: x,
+                dest: `/${x}.html`
+            }
+        });
+
+    return {
+        name: "mchaov personal blog",
+        routes: [...defaultRoutes, ...dynamicRoutes]
     }
-    ]
-}`;
+};
 
 rr(articlesPath)
     .then(x => {
         writeFileSync(
             vercelPath,
-            template(x.map(y => {
-                const p = path.parse(y);
-                return p.name
-            }))
+            JSON.stringify(
+                template(x.map(y => {
+                    const p = path.parse(y);
+                    return p.name.toLowerCase();
+                })), null, 4
+            )
         );
 
         console.log("### Vercel config generated")

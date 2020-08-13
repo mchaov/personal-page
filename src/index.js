@@ -99,7 +99,7 @@ function parseArticles(paths) {
         .map(x => {
             return {
                 ...x.article.meta,
-                url: x.pth.name
+                url: x.pth.name.toLowerCase()
             }
         })
         .sort((b, a) => a.dateCreated - b.dateCreated)
