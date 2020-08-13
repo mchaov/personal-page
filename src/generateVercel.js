@@ -15,7 +15,7 @@ const template = (routes) => `{
             "src": "/(.*)",
             "headers": {
                 "Cache-Control": "max-age=31536000",
-                "Link": "</main.css>; rel=preload; as=style"
+                "Link": "</css/main.css>; rel=preload; as=style"
             },
             "continue": true
         },
