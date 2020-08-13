@@ -2,7 +2,7 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 
-import { Pages } from "./pages";
+import { Articles } from "./articles";
 
 import "./index.less";
 import "highlight.js/styles/github.css";
@@ -22,7 +22,7 @@ class App extends React.Component<{}, {}>{
             <div
                 className="markdown-body"
                 dangerouslySetInnerHTML={{
-                    __html: Pages.test
+                    __html: Articles.test
                 }}>
             </div>
         </>

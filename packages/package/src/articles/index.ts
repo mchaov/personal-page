@@ -1,6 +1,6 @@
 // @ts-ignore
 import Test from "./test.md";
 
-export const Pages = {
+export const Articles = {
     test: Test
 }
