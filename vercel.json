@@ -13,15 +13,6 @@
             "src": "/",
             "dest": "/index.html"
         },
-        {
-                "src": "/and-one-more-test-article",
-                "dest": "/and-one-more-test-article.html"
-            },{
-                "src": "/another-test-article",
-                "dest": "/another-test-article.html"
-            },{
-                "src": "/test-article",
-                "dest": "/test-article.html"
-            }
+        
     ]
 }
