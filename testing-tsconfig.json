@@ -1,9 +1,0 @@
-{
-    "extends": "./.configs/baseTSConfig.json",
-    "compilerOptions": {
-        "removeComments": false,
-        "declaration": false,
-        "declarationMap": false,
-        "allowJs": true
-    }
-}
