@@ -8,6 +8,14 @@
                 "Link": "</index.css>; rel=preload; as=style, </index.js>; rel=preload; as=script"
             },
             "continue": true
+        },
+        {
+            "src": "/",
+            "dest": "/index.html"
+        },
+        {
+            "src": "/_report",
+            "dest": "/REPORT-package.html"
         }
     ]
 }
