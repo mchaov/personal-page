@@ -10,19 +10,24 @@ const imagesPath = path.join(sitePath, "i");
 const articlesPath = path.join(sitePath, "articles");
 const favIcoPath = path.join(sitePath, "favicon.ico");
 
-const template = readFileSync(path.resolve(__dirname, "template")).toString();
+const pageTemplate = readFileSync(
+    path.resolve(__dirname, "template.html")
+).toString();
+
+const articleAbstractTemplate = readFileSync(
+    path.resolve(__dirname, "article-abstract.html")
+).toString();
+
 
 const outFolder = path.resolve(__dirname, "..", "public");
 const outFolderCSS = path.join(outFolder, "css");
 const outFolderImages = path.join(outFolder, "i");
 
-// const pagesPath = path.resolve(__dirname, "..", "site", "pages");
-// const articles = [];
-
 const metaRegex = /!{{(.*)}}/s;
 
 marked.setOptions({
     gfm: true,
+    breaks: true,
     smartLists: true,
     highlight: (code, lang, _) => {
         return hljs.highlight(lang, code).value
@@ -32,7 +37,7 @@ marked.setOptions({
 const html = {
     HEADER: readFileAsString(path.resolve(__dirname, "header.html")),
     MENU: readFileAsString(path.resolve(__dirname, "menu.html")),
-    FOOTER: `<footer>footer</footer>`
+    FOOTER: readFileAsString(path.resolve(__dirname, "footer.html"))
 }
 
 function readFileAsString(pth) {
@@ -55,40 +60,72 @@ function parseArticle(fullPath) {
     const content = readFileAsString(fullPath);
     const meta = extractMeta(content);
 
-    const parcedContent = `<div class="markdown-body">
+    const parcedContent = `<article class="markdown-body"><p></p>
         ${marked(content.replace(metaRegex, ""))}
-    </div>`;
+    </article>`;
 
-    let output = "";
-    output = template.replace("{{PAGETITLE}}", generatePageTitle(meta.pageTitle))
-    output = output.replace("{{HEADER}}", html.HEADER)
-    output = output.replace("{{CONTENT}}", parcedContent)
-    output = output.replace("{{MENU}}", html.MENU)
-    output = output.replace("{{FOOTER}}", html.FOOTER)
+    let output = pageTemplate;
+    output = output.replace("{{PAGETITLE}}", generatePageTitle(meta.pageTitle));
+    output = output.replace("{{HEADER}}", html.HEADER);
+    output = output.replace("{{CONTENT}}", parcedContent);
+    output = output.replace("{{MENU}}", html.MENU);
+    output = output.replace("{{FOOTER}}", html.FOOTER);
 
     return { meta, output };
 }
 
 function parseArticles(paths) {
+    console.log("\n### Parsing articles\n")
     const articles = paths
         .map(fullPath => {
+            console.log(`#### PARSING: ${fullPath}`)
             return {
                 pth: path.parse(fullPath),
                 article: parseArticle(fullPath),
             }
         });
 
-    // sort articles and do other stuff to them...
-
+    // write all articles to FS
     articles.forEach(x => {
-        console.log(x.article.meta)
         writeFileSync(
             path.join(outFolder, `${x.pth.name}.html`),
-            x.article.output.replace(/\s+/gim, " ")
+            x.article.output
         )
     });
 
-    console.log("### ALL ARTICLES PARSED");
+    // generate content for home page
+    console.log(`#### PARSING: homepage`)
+    const homePageContent = articles
+        .map(x => {
+            return {
+                ...x.article.meta,
+                url: x.pth.name
+            }
+        })
+        .sort((b, a) => a.dateCreated - b.dateCreated)
+        .map(x => {
+            let article = articleAbstractTemplate;
+            article = article.replace("{{TITLE}}", x.pageTitle);
+            article = article.replace("{{DATE}}", new Date(x.dateCreated).toLocaleString());
+            article = article.replace("{{ABSTRACT}}", x.abstract);
+            article = article.replace("{{LINK}}", `/${x.url}.html`);
+            return article;
+        })
+        .join("<hr></hr>");
+
+    let homeOutput = pageTemplate;
+    homeOutput = homeOutput.replace("{{PAGETITLE}}", "");
+    homeOutput = homeOutput.replace("{{HEADER}}", html.HEADER);
+    homeOutput = homeOutput.replace("{{CONTENT}}", `<div class="markdown-body">${homePageContent}</div>`);
+    homeOutput = homeOutput.replace("{{MENU}}", html.MENU);
+    homeOutput = homeOutput.replace("{{FOOTER}}", html.FOOTER);
+
+    writeFileSync(
+        path.join(outFolder, `index.html`),
+        homeOutput
+    );
+
+    console.log("\n### ALL ARTICLES PARSED");
 }
 
 function parseCSS(paths) {
@@ -102,7 +139,7 @@ function parseCSS(paths) {
         css
     );
 
-    console.log("### CSS PARSED");
+    console.log("### CSS Parsed");
 }
 
 async function manageFS() {
