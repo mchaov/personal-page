@@ -1,0 +1,27 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
+}
+
+.main {
+    width: 90%;
+    margin: 0 auto;
+    padding: 0 20px;
+    max-width: 960px;
+    background: #fff;
+    box-sizing: border-box;
+    border-left: 1px solid #cecece;
+    border-right: 1px solid #cecece;
+}
+
+.main-header {
+    padding: 10px 0 0 0;
+}
+
+.main-menu {
+    padding: 10px 0 10px 0;
+}

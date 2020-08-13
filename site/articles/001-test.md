@@ -66,7 +66,7 @@ class Foo {
 
 ---
 
-![alt text for image](../../i/profile.jpg)
+![alt text for image](/i/profile.jpg)
 
 ---
 
