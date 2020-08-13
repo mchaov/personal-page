@@ -6,7 +6,8 @@
     "build:vercel": "exit 0",
     "test": "exit 0",
     "start": "ws -p 8080 -z -d ./public",
-    "build": "node ./src/index.js",
+    "build": "node ./src/index.js && npm run vercel",
+    "vercel": "node ./src/generateVercel.js",
     "add": "node ./src/makeArticle.js"
   },
   "repository": {
