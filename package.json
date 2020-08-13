@@ -4,14 +4,8 @@
   "description": "My personal page.",
   "scripts": {
     "build:vercel": "npm run webpack",
-    "webpack:dev": "webpack --config ./.configs/webpack.config.package.dev.js -w",
-    "webpack:w": "webpack --config ./.configs/webpack.config.package.prod.js -p -w",
-    "webpack": "webpack --config ./.configs/webpack.config.package.prod.js -p",
-    "test": "exit 0 && jest --bail --config ./.configs/jest.config.package.js",
-    "test:coverage": "jest --coverage --bail --config ./.configs/jest.config.package.js",
-    "start": "ws -p 8080 -z -d dist/package",
-    "lint": "tslint -c ./.configs/tslint.json ./packages/package/**/*.ts* --fix",
-    "build": "npm run lint && npm run webpack"
+    "start": "ws -p 8080 -z -d ./public",
+    "build": "node ./src/index.js"
   },
   "repository": {
     "type": "git",
@@ -28,7 +22,6 @@
     "github-markdown-css": "^4.0.0",
     "highlight.js": "^10.1.2",
     "local-web-server": "4.2.1",
-    "markdown-loader": "5.1.0",
     "marked": "1.1.1",
     "recursive-readdir": "^2.2.2"
   },
