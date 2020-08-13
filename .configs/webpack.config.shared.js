@@ -5,16 +5,25 @@ const CopyPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
-function isProd(mode) {
-    return mode === "production"
-}
+function isProd(mode) { return mode === "production" }
 
-module.exports = (mode, outputFolder, entryPath, tsconfigPath, fileSuffix, srcRoot) => {
+module.exports = (mode, outputFolder, tsconfigPath, fileSuffix, srcRoot) => {
     const inputRoot = path.resolve(__dirname, "../", "packages", outputFolder);
     const outRoot = path.resolve(__dirname, "../", "dist", outputFolder);
+    const pagesConfig = require(path.join(srcRoot, "pages.json"));
+
+    const entries = Object
+        .keys(pagesConfig)
+        .reduce((a, b) => {
+            a[b] = path.join(srcRoot, pagesConfig[b])
+            return a;
+        }, {});
+
+    console.log(entries);
+
     return {
         mode: mode,
-        entry: { index: entryPath },
+        entry: entries,
         devtool: "source-map",
         output: {
             filename: `[name]${fileSuffix && "." + fileSuffix}.js`,
@@ -24,7 +33,7 @@ module.exports = (mode, outputFolder, entryPath, tsconfigPath, fileSuffix, srcRo
         },
         resolve: {
             modules: [path.resolve(__dirname, "..", "src"), "node_modules"],
-            extensions: [".ts", ".tsx", ".js", ".wasm", ".mjs", ".json", ".less"],
+            extensions: [".ts", ".tsx", ".js", ".wasm", ".mjs", ".json"],
             alias: {
                 types: path.resolve(srcRoot, "types"),
                 helpers: path.resolve(srcRoot, "helpers")
@@ -92,13 +101,13 @@ module.exports = (mode, outputFolder, entryPath, tsconfigPath, fileSuffix, srcRo
             ],
         },
         optimization: {
-            // splitChunks: {
-            //     chunks: "initial",
-            //     name: "vendor"
-            // },
-            // runtimeChunk: {
-            //     name: "manifest",
-            // }
+            splitChunks: {
+                chunks: "initial",
+                name: "vendor"
+            },
+            runtimeChunk: {
+                name: "manifest"
+            }
         },
         plugins: [
             new webpack.DefinePlugin({

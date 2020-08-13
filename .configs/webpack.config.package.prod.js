@@ -7,7 +7,6 @@ module.exports = {
     ...baseConfig(
         "production",
         "package",
-        "./packages/package/src/index.tsx",
         "./packages/package/tsconfig.json",
         "",
         srcRoot

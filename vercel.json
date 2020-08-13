@@ -5,13 +5,17 @@
             "src": "/(.*)",
             "headers": {
                 "Cache-Control": "max-age=31536000",
-                "Link": "</index.css>; rel=preload; as=style, </index.js>; rel=preload; as=script"
+                "Link": "</vendor.css>; rel=preload; as=style, </manifest.js>; rel=preload; as=script, </vendor.js>; rel=preload; as=script"
             },
             "continue": true
         },
         {
             "src": "/",
             "dest": "/index.html"
+        },
+        {
+            "src": "/about",
+            "dest": "/about.html"
         },
         {
             "src": "/_report",
