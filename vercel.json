@@ -1,6 +1,5 @@
 {
     "name": "mchaov personal page",
-    "cleanUrls": true,
     "routes": [
         {
             "src": "/(.*)",
