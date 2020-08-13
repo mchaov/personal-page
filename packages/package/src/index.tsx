@@ -8,7 +8,6 @@ import "./index.less";
 import "highlight.js/styles/github.css";
 import "../../../node_modules/github-markdown-css/github-markdown.css"
 
-
 class App extends React.Component<{}, {}>{
     constructor(props) {
         super(props)
@@ -19,7 +18,7 @@ class App extends React.Component<{}, {}>{
             <h1>
                 Top
             </h1>
-            
+
             <div
                 className="markdown-body"
                 dangerouslySetInnerHTML={{

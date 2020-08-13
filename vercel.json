@@ -1,4 +1,14 @@
 {
     "name": "mchaov personal page",
-    "cleanUrls": true
+    "cleanUrls": true,
+    "routes": [
+        {
+            "src": "/(.*)",
+            "headers": {
+                "Cache-Control": "max-age=31536000",
+                "Link": "</index.css>; rel=preload; as=style, </index.js>; rel=preload; as=script"
+            },
+            "continue": true
+        }
+    ]
 }
