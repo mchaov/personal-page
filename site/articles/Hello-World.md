@@ -1,6 +1,6 @@
 !{{
     "dateCreated": 1597363374653,
-    "dateUpdated": 1597363374653,
+    "dateUpdated": 1597395903230,
     "pageTitle": "Hello World!",
     "tags": "[]",
     "abstract": "What is a new venture whithout a 'Hello World!' message. This post talks about how this page became reality... also why I did write my own static site generator in the process..."
@@ -22,7 +22,7 @@ The entire logic doing that is quite simple - I am using:
 - [highlight.js](https://www.npmjs.com/package/highlight.js) - to highligh any code samples in the posts
 - [github-markdown-css](https://www.npmjs.com/package/github-markdown-css) - well... why would I write my own styles...
 
-And that's it ... the code below generates this entire website. As I am writing this post at 3AM after just completing my frankenstatic generator - it looks quite ugly. Maybe I will improve it and publish - yet another open source static site generator... Nah, I am too lazy to make this a product. After I am done playing with it, I will probably migrate to something that supports generating posts from markdown.
+And that's it ... the code below generates this entire website. As I am writing this post at 3AM after just completing my **frankenstatic generator** - it looks quite ugly. Maybe I will improve it and publish - yet another open source static site generator... Nah, I am too lazy to make this a product. After I am done playing with it, I will probably migrate to something that supports generating posts from markdown.
 
 I have created couple of HTML files to use as templates and added string notation to make my toknes easy to match and replace with reges -> `{{TOKEN}}`. Then I've read them into variables:
 
@@ -65,7 +65,7 @@ function extractMeta(content) { // content is the string contents of the markdow
 }
 ```
 
-Then the "marked" and "highlight.js" packages are setup:
+Then the "marked" and "highlight.js" packages need some setup:
 
 ```javascript
 marked.setOptions({
@@ -219,3 +219,5 @@ And the IIFE that makes all of this happen when I type `npm run build`:
 ```
 
 That took me couple of hours to stitch together. Quite the enjoyable experience...
+
+Feel free to check the code on [github](https://github.com/mchaov/personal-page/)
