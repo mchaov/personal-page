@@ -42,7 +42,7 @@
 <li><a href="https://www.npmjs.com/package/highlight.js">highlight.js</a> - to highligh any code samples in the posts</li>
 <li><a href="https://www.npmjs.com/package/github-markdown-css">github-markdown-css</a> - well... why would I write my own styles...</li>
 </ul>
-<p>And that&#39;s it ... the code below generates this entire website. As I am writing this post at 3AM after just completing my frankenstatic generator it looks quite ugly. Maybe I will improve it and publish - yet another open source static site generator... Nah, I am too lazy to make this a product. After I am done playing with it, I will probably migrate to something that supports generating posts from markdown.</p>
+<p>And that&#39;s it ... the code below generates this entire website. As I am writing this post at 3AM after just completing my frankenstatic generator - it looks quite ugly. Maybe I will improve it and publish - yet another open source static site generator... Nah, I am too lazy to make this a product. After I am done playing with it, I will probably migrate to something that supports generating posts from markdown.</p>
 <p>I have created couple of HTML files to use as templates and added string notation to make my toknes easy to match and replace with reges -&gt; <code>{{TOKEN}}</code>. Then I&#39;ve read them into variables:</p>
 <pre><code class="language-javascript"><span class="hljs-keyword">const</span> pageTemplate = readFileSync(
     path.resolve(__dirname, <span class="hljs-string">&quot;template.html&quot;</span>)
