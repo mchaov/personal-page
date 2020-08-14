@@ -54,10 +54,10 @@ All my markdown files need some meta data that I've added in the following forma
 }}
 ```
 
-and the regex that matches it inside this simple function:
+And the regex that matches it inside this simple function:
 
 ```javascript
-const metaRegex = /!{{(.*)}}/s;
+const metaRegex = /!{{(.*?)}}/s;
 
 function extractMeta(content) { // content is the string contents of the markdown file
     const meta = content.match(metaRegex)[1];
