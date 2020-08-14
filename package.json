@@ -26,7 +26,8 @@
     "highlight.js": "10.1.2",
     "local-web-server": "4.2.1",
     "marked": "1.1.1",
-    "recursive-readdir": "2.2.2"
+    "recursive-readdir": "2.2.2",
+    "uuid": "^8.3.0"
   },
   "dependencies": {}
 }

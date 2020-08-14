@@ -1,5 +1,6 @@
 const path = require("path");
 const { writeFileSync } = require("fs-extra");
+const { v4: uuidv4 } = require('uuid');
 
 const sitePath = path.resolve(__dirname, "..", "site");
 const articlesPath = path.join(sitePath, "articles");
@@ -17,6 +18,7 @@ const template = `!{{
     "dateUpdated": ${Date.now()},
     "pageTitle": "${name}",
     "tags": "[]",
+    "id": "${uuidv4()}",
     "abstract": "ADD ABSTACT HERE"
 }}
 

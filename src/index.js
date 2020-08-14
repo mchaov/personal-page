@@ -66,6 +66,7 @@ function parseArticle(fullPath) {
 
     let output = pageTemplate;
     output = output.replace("{{PAGETITLE}}", generatePageTitle(meta.pageTitle));
+    output = output.replace("{{PAGEDESC}}", meta.abstract);
     output = output.replace("{{HEADER}}", html.HEADER);
     output = output.replace("{{CONTENT}}", parcedContent);
     output = output.replace("{{MENU}}", html.MENU);
@@ -115,6 +116,7 @@ function parseArticles(paths) {
 
     let homeOutput = pageTemplate;
     homeOutput = homeOutput.replace("{{PAGETITLE}}", "");
+    homeOutput = homeOutput.replace("{{PAGEDESC}}", "Martin's personal blog, where he shares his thoughts about various topics.");
     homeOutput = homeOutput.replace("{{HEADER}}", html.HEADER);
     homeOutput = homeOutput.replace("{{CONTENT}}", `<div class="markdown-body">${homePageContent}</div>`);
     homeOutput = homeOutput.replace("{{MENU}}", html.MENU);
