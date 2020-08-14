@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="googlebot" content="noindex">
+        <meta name="robots" content="noindex, nofollow">
+        <meta name="googlebot-news" content="nosnippet">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="description" content="Description...">
+        <meta name="HandheldFriendly" content="true">
+        <meta name="MobileOptimized" content="320">
+        <title>mchaov.net | Hello World!</title>
+        <meta name="theme-color" content="#ffffff">
+        <link rel="stylesheet" type="text/css" href="/css/main.css" />
+    </head>
+
+    <body>
+        <div class="main">
+            <header class="main-header">
+    <h1>Martin Chaov's personal blog.</h1>
+</header>
+            <menu class="main-menu">
+    <a href="/">Home</a> |
+    <a target="_blank" href="https://github.com/mchaov">GitHub</a> |
+    <a target="_blank" href="https://www.linkedin.com/in/martin-chaov-79912910/">LinkedIn</a> |
+    <a target="_blank" href="https://twitter.com/raziel_pld">Twitter</a> |
+    <a target="_blank" href="https://www.facebook.com/martin.chaov">Facebook</a>
+</menu>
+            <article class="markdown-body"><p></p>
+        <h1 id="hello-world">Hello World!</h1>
+<p>Hi there! Welcome to my blog and very first post!</p>
+<p>As you may have noticed in the abstract I mention that I wrote a static site generator because of it.</p>
+<p>It definitelly didn&#39;t start this way. I was planning to use one of already popular ones... However, I was wasting more and more time in their documentations, all I really wanted was simple web site that is quick to build and release. I didn&#39;t want complex setups and lenghty installs and etc. It seems that I also didn&#39;t need a system with a lot of features...</p>
+<p>And so ... my own static site generator from markdown started to look more and more appealing.</p>
+<p>The entire logic doing that is quite simple - I am using:</p>
+<ul>
+<li><a href="https://www.npmjs.com/package/marked">marked</a> - to parse the markdown files</li>
+<li><a href="https://www.npmjs.com/package/highlight.js">highlight.js</a> - to highligh any code samples in the posts</li>
+<li><a href="https://www.npmjs.com/package/github-markdown-css">github-markdown-css</a> - well... why would I write my own styles...</li>
+</ul>
+<p>And that&#39;s it ... the code below generates this entire website. As I am writing this post at 3AM after just completing my frankenstatic generator it looks quite ugly. Maybe I will improve it and publish - yet another open source static site generator... Nah, I am too lazy to make this a product. After I am done playing with it, I will probably migrate to something that supports generating posts from markdown.</p>
+<p>I have created couple of HTML files to use as templates and added string notation to make my toknes easy to match and replace with reges -&gt; <code>{{TOKEN}}</code>. Then I&#39;ve read them into variables:</p>
+<pre><code class="language-javascript"><span class="hljs-keyword">const</span> pageTemplate = readFileSync(
+    path.resolve(__dirname, <span class="hljs-string">&quot;template.html&quot;</span>)
+).toString();
+
+<span class="hljs-keyword">const</span> articleAbstractTemplate = readFileSync(
+    path.resolve(__dirname, <span class="hljs-string">&quot;article-abstract.html&quot;</span>)
+).toString();
+
+<span class="hljs-keyword">const</span> html = {
+    <span class="hljs-attr">HEADER</span>: readFileAsString(path.resolve(__dirname, <span class="hljs-string">&quot;header.html&quot;</span>)),
+    <span class="hljs-attr">MENU</span>: readFileAsString(path.resolve(__dirname, <span class="hljs-string">&quot;menu.html&quot;</span>)),
+    <span class="hljs-attr">FOOTER</span>: readFileAsString(path.resolve(__dirname, <span class="hljs-string">&quot;footer.html&quot;</span>))
+}</code></pre>
+<p>All my markdown files need some meta data that I&#39;ve added in the following format:</p>
+<pre><code class="language-javascript">!{{
+    <span class="hljs-string">&quot;dateCreated&quot;</span>: number,
+    <span class="hljs-string">&quot;dateUpdated&quot;</span>: number,
+    <span class="hljs-string">&quot;pageTitle&quot;</span>: string,
+    <span class="hljs-string">&quot;tags&quot;</span>: string[],
+    <span class="hljs-string">&quot;abstract&quot;</span>: string
+}}</code></pre>
+<p>and the regex that matches it inside this simple function:</p>
+<pre><code class="language-javascript"><span class="hljs-keyword">const</span> metaRegex = <span class="hljs-regexp">/!{{(.*)}}/</span>s;
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">extractMeta</span>(<span class="hljs-params">content</span>) </span>{ <span class="hljs-comment">// content is the string contents of the markdown file</span>
+    <span class="hljs-keyword">const</span> meta = content.match(metaRegex)[<span class="hljs-number">1</span>];
+    <span class="hljs-keyword">return</span> <span class="hljs-built_in">JSON</span>.parse(<span class="hljs-string">`{<span class="hljs-subst">${meta}</span>}`</span>)
+}</code></pre>
+<p>Then the &quot;marked&quot; and &quot;highlight.js&quot; packages are setup:</p>
+<pre><code class="language-javascript">marked.setOptions({
+    <span class="hljs-attr">gfm</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">breaks</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">smartLists</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">highlight</span>: <span class="hljs-function">(<span class="hljs-params">code, lang, _</span>) =&gt;</span> {
+        <span class="hljs-keyword">return</span> hljs.highlight(lang, code).value
+    }
+});</code></pre>
+<p>Some helper functions to simplify my writing:</p>
+<pre><code class="language-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">readFileAsString</span>(<span class="hljs-params">pth</span>) </span>{
+    <span class="hljs-keyword">return</span> readFileSync(pth).toString();
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">generatePageTitle</span>(<span class="hljs-params">title</span>) </span>{
+    <span class="hljs-keyword">if</span> (title) {
+        <span class="hljs-keyword">return</span> <span class="hljs-string">` | <span class="hljs-subst">${title}</span>`</span>;
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;&quot;</span>;
+}</code></pre>
+<p>This is the main function that generates the articles HTML and writes the static files in to the FS:</p>
+<pre><code class="language-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">parseArticle</span>(<span class="hljs-params">fullPath</span>) </span>{
+    <span class="hljs-keyword">const</span> content = readFileAsString(fullPath);
+    <span class="hljs-keyword">const</span> meta = extractMeta(content);
+
+    <span class="hljs-keyword">const</span> parcedContent = <span class="hljs-string">`&lt;article class=&quot;markdown-body&quot;&gt;&lt;p&gt;&lt;/p&gt;
+        <span class="hljs-subst">${marked(content.replace(metaRegex, <span class="hljs-string">&quot;&quot;</span>))}</span>
+    &lt;/article&gt;`</span>;
+
+    <span class="hljs-keyword">let</span> output = pageTemplate;
+    output = output.replace(<span class="hljs-string">&quot;{PAGETITLE}&quot;</span>, generatePageTitle(meta.pageTitle));
+    output = output.replace(<span class="hljs-string">&quot;{HEADER}&quot;</span>, html.HEADER);
+    output = output.replace(<span class="hljs-string">&quot;{CONTENT}&quot;</span>, parcedContent);
+    output = output.replace(<span class="hljs-string">&quot;{MENU}&quot;</span>, html.MENU);
+    output = output.replace(<span class="hljs-string">&quot;{FOOTER}&quot;</span>, html.FOOTER);
+
+    <span class="hljs-keyword">return</span> { meta, output };
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">parseArticles</span>(<span class="hljs-params">paths</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;\n### Parsing articles\n&quot;</span>)
+    <span class="hljs-keyword">const</span> articles = paths
+        .map(<span class="hljs-function"><span class="hljs-params">fullPath</span> =&gt;</span> {
+            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`#### PARSING: <span class="hljs-subst">${fullPath}</span>`</span>)
+            <span class="hljs-keyword">return</span> {
+                <span class="hljs-attr">pth</span>: path.parse(fullPath),
+                <span class="hljs-attr">article</span>: parseArticle(fullPath),
+            }
+        });
+
+    <span class="hljs-comment">// write all articles to FS</span>
+    articles.forEach(<span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> {
+        writeFileSync(
+            path.join(outFolder, <span class="hljs-string">`<span class="hljs-subst">${x.pth.name}</span>.html`</span>),
+            x.article.output
+        )
+    });
+
+    <span class="hljs-comment">// generate content for home page</span>
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`#### PARSING: homepage`</span>)
+    <span class="hljs-keyword">const</span> homePageContent = articles
+        .map(<span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> {
+            <span class="hljs-keyword">return</span> {
+                ...x.article.meta,
+                <span class="hljs-attr">url</span>: x.pth.name.toLowerCase()
+            }
+        })
+        .sort(<span class="hljs-function">(<span class="hljs-params">b, a</span>) =&gt;</span> a.dateCreated - b.dateCreated)
+        .map(<span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> {
+            <span class="hljs-keyword">let</span> article = articleAbstractTemplate;
+            article = article.replace(<span class="hljs-string">&quot;{TITLE}&quot;</span>, x.pageTitle);
+            article = article.replace(<span class="hljs-string">&quot;{DATE}&quot;</span>, <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(x.dateCreated).toLocaleString());
+            article = article.replace(<span class="hljs-string">&quot;{ABSTRACT}&quot;</span>, x.abstract);
+            article = article.replace(<span class="hljs-string">&quot;{LINK}&quot;</span>, <span class="hljs-string">`/<span class="hljs-subst">${x.url}</span>.html`</span>);
+            <span class="hljs-keyword">return</span> article;
+        })
+        .join(<span class="hljs-string">&quot;&lt;hr&gt;&lt;/hr&gt;&quot;</span>);
+
+    <span class="hljs-keyword">let</span> homeOutput = pageTemplate;
+    homeOutput = homeOutput.replace(<span class="hljs-string">&quot;{PAGETITLE}&quot;</span>, <span class="hljs-string">&quot;&quot;</span>);
+    homeOutput = homeOutput.replace(<span class="hljs-string">&quot;{HEADER}&quot;</span>, html.HEADER);
+    homeOutput = homeOutput.replace(<span class="hljs-string">&quot;{CONTENT}&quot;</span>, <span class="hljs-string">`&lt;div class=&quot;markdown-body&quot;&gt;<span class="hljs-subst">${homePageContent}</span>&lt;/div&gt;`</span>);
+    homeOutput = homeOutput.replace(<span class="hljs-string">&quot;{MENU}&quot;</span>, html.MENU);
+    homeOutput = homeOutput.replace(<span class="hljs-string">&quot;{FOOTER}&quot;</span>, html.FOOTER);
+
+    writeFileSync(
+        path.join(outFolder, <span class="hljs-string">`index.html`</span>),
+        homeOutput
+    );
+
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;\n### ALL ARTICLES PARSED&quot;</span>);
+}</code></pre>
+<p>I do use some CSS and it needs to be concatenated and &quot;deflated&quot;:</p>
+<pre><code class="language-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">parseCSS</span>(<span class="hljs-params">paths</span>) </span>{
+    <span class="hljs-keyword">const</span> css = paths
+        .map(readFileAsString)
+        .join(<span class="hljs-string">&quot; &quot;</span>)
+        .replace(<span class="hljs-regexp">/\s+/gim</span>, <span class="hljs-string">&quot; &quot;</span>);
+
+    writeFileSync(
+        path.join(outFolderCSS, <span class="hljs-string">&quot;main.css&quot;</span>),
+        css
+    );
+
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;### CSS Parsed&quot;</span>);
+}</code></pre>
+<p>Everytime I decide to rebuild the pages I should clean the FS from the existing files:</p>
+<pre><code class="language-javascript"><span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">manageFS</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">await</span> ensureDir(outFolder);
+    emptyDirSync(outFolder);
+    <span class="hljs-keyword">await</span> ensureDir(outFolderCSS);
+
+    writeFileSync(path.join(outFolder, <span class="hljs-string">&quot;favicon.ico&quot;</span>), readFileSync(favIcoPath));
+
+    copySync(imagesPath, outFolderImages);
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;### Directory clean up complete&quot;</span>);
+}</code></pre>
+<p>And the IIFE that makes all of this happen when I type <code>npm run build</code>:</p>
+<pre><code class="language-javascript">(<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">await</span> manageFS();
+
+    rr(articlesPath)
+        .then(parseArticles)
+        .catch(<span class="hljs-built_in">console</span>.error)
+
+    rr(cssPath)
+        .then(parseCSS)
+        .catch(<span class="hljs-built_in">console</span>.error)
+}())</code></pre>
+<p>That took me couple of hours to stitch together. Quite the enjoyable experience...</p>
+
+    </article>
+            <footer class="main-footer"></footer>
+        </div>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-3573804-6"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+            gtag('config', 'UA-3573804-6');
+        </script>
+    </body>
+
+</html>
