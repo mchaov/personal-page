@@ -205,6 +205,8 @@ async function manageFS() {
 And the IIFE that makes all of this happen when I type `npm run build`:
 
 ```javascript
+const rr = require("recursive-readdir");
+
 (async function () {
     await manageFS();
 
