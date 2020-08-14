@@ -88,7 +88,7 @@ function parseArticles(paths) {
     // write all articles to FS
     articles.forEach(x => {
         writeFileSync(
-            path.join(outFolder, `${x.pth.name}.html`),
+            path.join(outFolder, `${x.pth.name.toLowerCase()}.html`),
             x.article.output
         )
     });
