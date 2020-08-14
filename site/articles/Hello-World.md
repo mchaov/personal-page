@@ -220,4 +220,4 @@ And the IIFE that makes all of this happen when I type `npm run build`:
 
 That took me couple of hours to stitch together. Quite the enjoyable experience...
 
-Feel free to check the code on [github](https://github.com/mchaov/personal-page/)
+Feel free to check the source on [github](https://github.com/mchaov/personal-page/).
