@@ -6,6 +6,7 @@ const articlesPath = path.join(sitePath, "articles");
 
 const _name = process.argv
     .slice(2, process.argv.length)
+    .map(x => x.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, ""))
 
 const name = _name.join(" ");
 

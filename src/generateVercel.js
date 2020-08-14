@@ -28,7 +28,7 @@ const template = (routes) => {
     const dynamicRoutes = routes
         .map(x => {
             return {
-                src: x,
+                src: `/${x}`,
                 dest: `/${x}.html`
             }
         });

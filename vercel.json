@@ -14,8 +14,8 @@
             "dest": "/index.html"
         },
         {
-            "src": "hello-world!",
-            "dest": "/hello-world!.html"
+            "src": "/hello-world",
+            "dest": "/hello-world.html"
         }
     ]
 }
