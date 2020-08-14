@@ -21,12 +21,12 @@
   },
   "homepage": "https://github.com/mchaov/personal-page#readme",
   "devDependencies": {
-    "fs-extra": "^9.0.1",
-    "github-markdown-css": "^4.0.0",
-    "highlight.js": "^10.1.2",
+    "fs-extra": "9.0.1",
+    "github-markdown-css": "4.0.0",
+    "highlight.js": "10.1.2",
     "local-web-server": "4.2.1",
     "marked": "1.1.1",
-    "recursive-readdir": "^2.2.2"
+    "recursive-readdir": "2.2.2"
   },
   "dependencies": {}
 }
