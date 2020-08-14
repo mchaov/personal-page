@@ -23,7 +23,7 @@ const outFolder = path.resolve(__dirname, "..", "public");
 const outFolderCSS = path.join(outFolder, "css");
 const outFolderImages = path.join(outFolder, "i");
 
-const metaRegex = /!{{(.*)}}/s;
+const metaRegex = /^!{{(.*?)}}/s;
 
 marked.setOptions({
     gfm: true,

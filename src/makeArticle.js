@@ -15,7 +15,7 @@ const template = `!{{
     "dateCreated": ${Date.now()},
     "dateUpdated": ${Date.now()},
     "pageTitle": "${name}",
-    "tags": "['']"
+    "tags": "[]",
     "abstract": "ADD ABSTACT HERE"
 }}
 

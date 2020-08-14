@@ -2,7 +2,7 @@
     "dateCreated": 1597363374653,
     "dateUpdated": 1597363374653,
     "pageTitle": "Hello World!",
-    "tags": "['']"
+    "tags": "[]",
     "abstract": "What is a new venture whithout a 'Hello World!' message. This post talks about how this page became reality... also why I did write my own static site generator in the process..."
 }}
 
@@ -92,11 +92,11 @@ function parseArticle(fullPath) {
     </article>`;
 
     let output = pageTemplate;
-    output = output.replace("{{PAGETITLE}}", generatePageTitle(meta.pageTitle));
-    output = output.replace("{{HEADER}}", html.HEADER);
-    output = output.replace("{{CONTENT}}", parcedContent);
-    output = output.replace("{{MENU}}", html.MENU);
-    output = output.replace("{{FOOTER}}", html.FOOTER);
+    output = output.replace("{PAGETITLE}", generatePageTitle(meta.pageTitle));
+    output = output.replace("{HEADER}", html.HEADER);
+    output = output.replace("{CONTENT}", parcedContent);
+    output = output.replace("{MENU}", html.MENU);
+    output = output.replace("{FOOTER}", html.FOOTER);
 
     return { meta, output };
 }
@@ -132,20 +132,20 @@ function parseArticles(paths) {
         .sort((b, a) => a.dateCreated - b.dateCreated)
         .map(x => {
             let article = articleAbstractTemplate;
-            article = article.replace("{{TITLE}}", x.pageTitle);
-            article = article.replace("{{DATE}}", new Date(x.dateCreated).toLocaleString());
-            article = article.replace("{{ABSTRACT}}", x.abstract);
-            article = article.replace("{{LINK}}", `/${x.url}.html`);
+            article = article.replace("{TITLE}", x.pageTitle);
+            article = article.replace("{DATE}", new Date(x.dateCreated).toLocaleString());
+            article = article.replace("{ABSTRACT}", x.abstract);
+            article = article.replace("{LINK}", `/${x.url}.html`);
             return article;
         })
         .join("<hr></hr>");
 
     let homeOutput = pageTemplate;
-    homeOutput = homeOutput.replace("{{PAGETITLE}}", "");
-    homeOutput = homeOutput.replace("{{HEADER}}", html.HEADER);
-    homeOutput = homeOutput.replace("{{CONTENT}}", `<div class="markdown-body">${homePageContent}</div>`);
-    homeOutput = homeOutput.replace("{{MENU}}", html.MENU);
-    homeOutput = homeOutput.replace("{{FOOTER}}", html.FOOTER);
+    homeOutput = homeOutput.replace("{PAGETITLE}", "");
+    homeOutput = homeOutput.replace("{HEADER}", html.HEADER);
+    homeOutput = homeOutput.replace("{CONTENT}", `<div class="markdown-body">${homePageContent}</div>`);
+    homeOutput = homeOutput.replace("{MENU}", html.MENU);
+    homeOutput = homeOutput.replace("{FOOTER}", html.FOOTER);
 
     writeFileSync(
         path.join(outFolder, `index.html`),
