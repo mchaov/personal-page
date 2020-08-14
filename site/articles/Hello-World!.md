@@ -12,9 +12,9 @@ Hi there! Welcome to my blog and very first post!
 
 As you may have noticed in the abstract I mention that I wrote a static site generator because of it.
 
-It definitelly didn't start this way. I was planning to use one of already popular ones... However, I was wasting more and more time in their documentation, and I wanted a simple web site that is quick to build and release. I didn't want complex setups and lenghty installs and etc.
+It definitelly didn't start this way. I was planning to use one of already popular ones... However, I was wasting more and more time in their documentations, all I really wanted was simple web site that is quick to build and release. I didn't want complex setups and lenghty installs and etc. It seems that I also didn't need a system with a lot of features...
 
-And so ... my static site generator from markdown started to look more and more appealing.
+And so ... my own static site generator from markdown started to look more and more appealing.
 
 The entire logic doing that is quite simple - I am using:
 
@@ -22,21 +22,11 @@ The entire logic doing that is quite simple - I am using:
 - [highlight.js](https://www.npmjs.com/package/highlight.js) - to highligh any code samples in the posts
 - [github-markdown-css](https://www.npmjs.com/package/github-markdown-css) - well... why would I write my own styles...
 
-And that's it ... the code below generates this entire website. As I am writing this post at 3AM after just completing my frankenstatic generator it looks quite ugly. Maybe I will improve it and publish - yet another open source static site generator...
+And that's it ... the code below generates this entire website. As I am writing this post at 3AM after just completing my frankenstatic generator it looks quite ugly. Maybe I will improve it and publish - yet another open source static site generator... Nah, I am too lazy to make this a product. After I am done playing with it, I will probably migrate to something that supports generating posts from markdown.
+
+I have created couple of HTML files to use as templates and added string notation to make my toknes easy to match and replace with reges -> `{{TOKEN}}`. Then I've read them into variables:
 
 ```javascript
-const path = require("path");
-const { readFileSync, writeFileSync, emptyDirSync, ensureDir, copySync, copyFileSync } = require("fs-extra");
-const rr = require("recursive-readdir");
-const marked = require('marked');
-const hljs = require('highlight.js');
-
-const sitePath = path.resolve(__dirname, "..", "site");
-const cssPath = path.join(sitePath, "css");
-const imagesPath = path.join(sitePath, "i");
-const articlesPath = path.join(sitePath, "articles");
-const favIcoPath = path.join(sitePath, "favicon.ico");
-
 const pageTemplate = readFileSync(
     path.resolve(__dirname, "template.html")
 ).toString();
@@ -45,13 +35,39 @@ const articleAbstractTemplate = readFileSync(
     path.resolve(__dirname, "article-abstract.html")
 ).toString();
 
+const html = {
+    HEADER: readFileAsString(path.resolve(__dirname, "header.html")),
+    MENU: readFileAsString(path.resolve(__dirname, "menu.html")),
+    FOOTER: readFileAsString(path.resolve(__dirname, "footer.html"))
+}
+```
 
-const outFolder = path.resolve(__dirname, "..", "public");
-const outFolderCSS = path.join(outFolder, "css");
-const outFolderImages = path.join(outFolder, "i");
+All my markdown files need some meta data that I've added in the following format:
 
+```javascript
+!{{
+    "dateCreated": number,
+    "dateUpdated": number,
+    "pageTitle": string,
+    "tags": string[],
+    "abstract": string
+}}
+```
+
+and the regex that matches it inside this simple function:
+
+```javascript
 const metaRegex = /!{{(.*)}}/s;
 
+function extractMeta(content) { // content is the string contents of the markdown file
+    const meta = content.match(metaRegex)[1];
+    return JSON.parse(`{${meta}}`)
+}
+```
+
+Then the "marked" and "highlight.js" packages are setup:
+
+```javascript
 marked.setOptions({
     gfm: true,
     breaks: true,
@@ -60,20 +76,13 @@ marked.setOptions({
         return hljs.highlight(lang, code).value
     }
 });
+```
 
-const html = {
-    HEADER: readFileAsString(path.resolve(__dirname, "header.html")),
-    MENU: readFileAsString(path.resolve(__dirname, "menu.html")),
-    FOOTER: readFileAsString(path.resolve(__dirname, "footer.html"))
-}
+Some helper functions to simplify my writing:
 
+```javascript
 function readFileAsString(pth) {
     return readFileSync(pth).toString();
-}
-
-function extractMeta(content) {
-    const meta = content.match(metaRegex)[1];
-    return JSON.parse(`{${meta}}`)
 }
 
 function generatePageTitle(title) {
@@ -82,7 +91,11 @@ function generatePageTitle(title) {
     }
     return "";
 }
+```
 
+This is the main function that generates the articles HTML and writes the static files in to the FS:
+
+```javascript
 function parseArticle(fullPath) {
     const content = readFileAsString(fullPath);
     const meta = extractMeta(content);
@@ -154,7 +167,11 @@ function parseArticles(paths) {
 
     console.log("\n### ALL ARTICLES PARSED");
 }
+```
 
+I do use some CSS and it needs to be concatenated and "deflated":
+
+```javascript
 function parseCSS(paths) {
     const css = paths
         .map(readFileAsString)
@@ -168,7 +185,11 @@ function parseCSS(paths) {
 
     console.log("### CSS Parsed");
 }
+```
 
+Everytime I decide to rebuild the pages I should clean the FS from the existing files:
+
+```javascript
 async function manageFS() {
     await ensureDir(outFolder);
     emptyDirSync(outFolder);
@@ -179,7 +200,11 @@ async function manageFS() {
     copySync(imagesPath, outFolderImages);
     console.log("### Directory clean up complete");
 }
+```
 
+And the IIFE that makes all of this happen when I type `npm run build`:
+
+```javascript
 (async function () {
     await manageFS();
 
@@ -193,4 +218,4 @@ async function manageFS() {
 }())
 ```
 
-Nah, I am too lazy to make this a product. After I am done playing with it, I will probably migrate to something that supports generating posts from markdown.
+That took me couple of hours to stitch together. Quite the enjoyable experience...
