@@ -49,7 +49,7 @@ The abomination I am talking about is called [useEffect](https://reactjs.org/doc
 
 - **"Accepts a function that contains imperative, possibly effectful code."** => good, open the path to the dark side... Very functional, much pure...
 - **"The function passed to useEffect will run after the render is committed to the screen."** => I am sure this is going to only become simpler with the async rendering we are waiting to come with future React versions.
-- **"Think of effects as an escape hatch from React’s purely functional world into the imperative world."** => we might need to re-align about which is the "purely functional" part of React. Probably they mean the `context` API? There is nothing inherently functional about the React library.
+- **"Think of effects as an escape hatch from React’s purely functional world into the imperative world."** => we might need to re-align about which is the "purely functional" part of React. Probably they don't mean the `context` API? There is nothing inherently functional about the React library.
 - **"By default, effects run after every completed render, but you can choose to fire them only when certain values have changed."** => I am sure no one is going to have to deal with issues coming from cyclomatic complexity here...
 - **"...the function passed to useEffect may return a clean-up function..."** => nice, so they escaped the declarative world so much that now the function sigranture and return values are just whatever the dev needs. I see no potential for all the dirty logic to go inside one hook callback.
 - **"if a component renders multiple times (as they typically do), the previous effect is cleaned up before executing the next effect"** => Only if we return "clean-up" function, I guess?
