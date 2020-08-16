@@ -51,12 +51,12 @@
 </blockquote>
 <p>Yes, that is not the job of the library to provide... React should remain focused on the presentation. The library should not handle state that is outside of what is related to the component rendering. All the rest should be external and provided as props. And please don&#39;t get me started on the context API... React should not become an application framework such as Angular.</p>
 <h2 id="complex-components-become-hard-to-understand">Complex components become hard to understand</h2>
-<p>Yes - a 300 line class/function/method is difficult to understand, so what? How does hooks solve this? How is 300 line hook easier to understand than anything else with similar LoK.</p>
+<p>Yes - a 300 line class/function/method is difficult to understand, so what? How does hooks solve this? How is a 300 line hook easier to understand than anything else with similar LoK.</p>
 <p>The authors claim that class methods such as: <code>componentDidMount</code>, <code>componentDidUpdate</code>, <code>componentWillUnmount</code>; can be confusing and scary. So they replaced them with 1 function with one hell of a signature...</p>
 <p>The abomination I am talking about is called <a href="https://reactjs.org/docs/hooks-reference.html#useeffect">useEffect</a> and I don&#39;t want to copy/paste one hundred sentences so I will just shortlist what this function does:</p>
 <p><strong>{SARCASM ALERT}</strong> If you are sensitive to sarcasm, you might want to read someone else&#39;s blog...</p>
 <ul>
-<li><strong>&quot;Accepts a function that contains imperative, possibly effectful code.&quot;</strong> =&gt; good, open the path to the dark side...</li>
+<li><strong>&quot;Accepts a function that contains imperative, possibly effectful code.&quot;</strong> =&gt; good, open the path to the dark side... Very functional, much pure...</li>
 <li><strong>&quot;The function passed to useEffect will run after the render is committed to the screen.&quot;</strong> =&gt; I am sure this is going to only become simpler with the async rendering we are waiting to come with future React versions.</li>
 <li><strong>&quot;Think of effects as an escape hatch from React’s purely functional world into the imperative world.&quot;</strong> =&gt; we might need to re-align about which is the &quot;purely functional&quot; part of React. Probably they mean the <code>context</code> API? There is nothing inherently functional about the React library.</li>
 <li><strong>&quot;By default, effects run after every completed render, but you can choose to fire them only when certain values have changed.&quot;</strong> =&gt; I am sure no one is going to have to deal with issues coming from cyclomatic complexity here...</li>
