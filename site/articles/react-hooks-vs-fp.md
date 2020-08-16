@@ -35,7 +35,7 @@ No it is not... It was never hard... However, it requires though and design upfr
 
 >React doesn’t offer a way to “attach” reusable behavior to a component (for example, connecting it to a store).
 
-Yes, that is not the job of the library to provide... React should remain focused on the presentation. The framework should not handle state that is outside of what is related to the component rendering. All the rest should be external and provided as props. And please don't get me started on the context API...
+Yes, that is not the job of the library to provide... React should remain focused on the presentation. The library should not handle state that is outside of what is related to the component rendering. All the rest should be external and provided as props. And please don't get me started on the context API...
 
 ## Complex components become hard to understand
 
