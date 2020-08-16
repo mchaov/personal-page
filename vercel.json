@@ -16,6 +16,10 @@
         {
             "src": "/hello-world",
             "dest": "/hello-world.html"
+        },
+        {
+            "src": "/react-hooks-vs-fp",
+            "dest": "/react-hooks-vs-fp.html"
         }
     ]
 }

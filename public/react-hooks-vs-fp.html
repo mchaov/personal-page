@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="description" content="ADD ABSTACT HERE">
+        <meta name="HandheldFriendly" content="true">
+        <meta name="MobileOptimized" content="320">
+        <title>mchaov.net | react hooks vs fp</title>
+        <meta name="theme-color" content="#ffffff">
+        <link rel="stylesheet" type="text/css" href="/css/main.css" />
+    </head>
+
+    <body>
+        <div class="main">
+            <header class="main-header">
+    <h1>Martin Chaov chasing bits...</h1>
+</header>
+            <menu class="main-menu">
+    <a href="/">Home</a> |
+    <a target="_blank" rel="noopener" href="https://github.com/mchaov">GitHub</a> |
+    <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/martin-chaov-79912910/">LinkedIn</a> |
+    <a target="_blank" rel="noopener" href="https://twitter.com/raziel_pld">Twitter</a> |
+    <a target="_blank" rel="noopener" href="https://www.facebook.com/martin.chaov">Facebook</a>
+</menu>
+            <article class="markdown-body"><p></p>
+        <h1 id="react-hooks-vs-fp">React Hooks vs FP</h1>
+<p>With the release of React 16.8 we got the much anticipated hooks! And immediatelly the whole dev community lost their collective mind about how amazing the hooks are! How much more functional we can write our React components/apps... whatever they are writing.</p>
+<p>I love functional programming. It makes me feel secure. I know this is not a property of the paradigm ... the code is as good as the developer who creates it. I&#39;ve seen very bad functional code, and very good OOP code. The functional code I produce is very dense - a lot of program in very little amount of code :)</p>
+<p>The reason I am putting this rant online is because of conversations I had with various senior developers around the subject. There seems to be a gross misunderstanding about what is FP (in the JavaScript community here in BG) and what is React. And how React is functional, and how it is not...</p>
+<p>The main thing that got me to write this is a statement from a developer &quot;they want to write only functional code, thus using component implementations with functions and hooks&quot;.</p>
+<p>Here follows my take based on my experience with FP and React.</p>
+<h2 id="lets-start-by-evaluating-the-motivation-for-adding-hooks">Let&#39;s start by evaluating the motivation for adding hooks</h2>
+<blockquote>
+<p>Hooks solve a wide variety of seemingly unconnected problems in React that we’ve encountered over five years of writing and maintaining tens of thousands of components. Whether you’re learning React, use it daily, or even prefer a different library with a similar component model, you might recognize some of these problems. - React documentation</p>
+</blockquote>
+<p>Let&#39;s check what React docs have to say about it:</p>
+<ul>
+<li>&quot;It’s hard to reuse stateful logic between components&quot;</li>
+<li>&quot;Complex components become hard to understand&quot;</li>
+<li>&quot;Classes confuse both people and machines&quot;</li>
+</ul>
+<h2 id="its-hard-to-reuse-stateful-logic-between-components">It’s hard to reuse stateful logic between components</h2>
+<p>No it is not... It was never hard... However, it requires though and design upfront. State as implementation was never mandatory part of the component class or functional based. Most sensible devs I know of, did create the state outside of the React context and passed it as props. And that&#39;s all... it is easy to write, easy to maintain and extend, easy to share and test...</p>
+<blockquote>
+<p>React doesn’t offer a way to “attach” reusable behavior to a component (for example, connecting it to a store).</p>
+</blockquote>
+<p>Yes, that is not the job of the library to provide... React should remain focused on the presentation. The framework should not handle state that is outside of what is related to the component rendering. All the rest should be external and provided as props. And please don&#39;t get me started on the context API...</p>
+<h2 id="complex-components-become-hard-to-understand">Complex components become hard to understand</h2>
+<p>Yes - a 300 line class/function/method is difficult to understand, so what? How does hooks solve this? How is 300 line hook easier to understand than anything else with similar LoK.</p>
+<p>The authors claim that class methods such as: <code>componentDidMount</code>, <code>componentDidUpdate</code>, <code>componentWillUnmount</code>; can be confusing and scary. So they replaced them with 1 function with one hell of a signature...</p>
+<p>The abomination I am talking about is called <a href="https://reactjs.org/docs/hooks-reference.html#useeffect">useEffect</a> and I don&#39;t want to copy/paste one hundred sentences so I will just shortlist what this function does:</p>
+<p><strong>{SARCASM ALERT}</strong> If you are sensitive to sarcasm, you might want to read someone else&#39;s blog...</p>
+<ul>
+<li><strong>&quot;Accepts a function that contains imperative, possibly effectful code.&quot;</strong> =&gt; good, open the path to the dark side...</li>
+<li><strong>&quot;The function passed to useEffect will run after the render is committed to the screen.&quot;</strong> =&gt; I am sure this is going to only become simpler with the async rendering we are waiting to come with future React versions.</li>
+<li><strong>&quot;Think of effects as an escape hatch from React’s purely functional world into the imperative world.&quot;</strong> =&gt; we might need to re-align about which is the &quot;purely functional&quot; part of React. Probably they mean the <code>context</code> API? There is nothing inherently functional about the React library.</li>
+<li><strong>&quot;By default, effects run after every completed render, but you can choose to fire them only when certain values have changed.&quot;</strong> =&gt; I am sure no one is going to have to deal with issues coming from cyclomatic complexity here...</li>
+<li><strong>&quot;...the function passed to useEffect may return a clean-up function...&quot;</strong> =&gt; nice, so they escaped the declarative world so much that now the function sigranture and return values are just whatever the dev needs. I see no potential for all the dirty logic to go inside one hook callback.</li>
+<li><strong>&quot;if a component renders multiple times (as they typically do), the previous effect is cleaned up before executing the next effect&quot;</strong> =&gt; Only if we return &quot;clean-up&quot; function, I guess?</li>
+<li><strong>&quot;Timing of effects&quot;</strong></li>
+<li><strong>&quot;Unlike componentDidMount and componentDidUpdate, the function passed to useEffect fires after layout and paint, during a deferred event.&quot;</strong> =&gt; good, good, no potential for errors here... the developers need to just remember that.</li>
+<li><strong>&quot;However, not all effects can be deferred. For example, a DOM mutation that is visible to the user must fire synchronously before the next paint so that the user does not perceive a visual inconsistency.&quot;</strong> =&gt; aha, so we are sometimes async, sometimes sync. Yes that makes sense in the context of execution of the same function.</li>
+<li><strong>&quot;Conditionally firing an effect&quot;</strong></li>
+<li><strong>&quot;The default behavior for effects is to fire the effect after every completed render.&quot;</strong> =&gt; which may trigger a new render, which is okay I guess. My problem here is the way this sentence is formed makes me thing there is a way to intentionally (or not) change that behavior.</li>
+<li><strong>&quot;We don’t need to create a new subscription on every update, only if the source prop has changed... To implement this, pass a second argument to useEffect that is the array of values that the effect depends on.&quot;</strong> =&gt; Ah, manual DI :) my favourite.</li>
+</ul>
+<p>So from the above I see most of the software complexity problems encapsulated into the behavior of one function. So far hooks seem like a hack that someone needed to avoid re-designing their application. And that is fine - I&#39;ve done similar things out of necessity as well. What I don&#39;t get is how can someone still call their components &quot;functional&quot; after inserting all of this stateful, mutable, messy, side-effecty code. Components using hooks are not functional, they are procedural. One of the key differences between a procedure and a function (by definitions) is that the latter can&#39;t be affected by it&#39;s environment.</p>
+<p>Also proceeding with the following note:</p>
+<blockquote>
+<p>Note:</p>
+<p>If you use this optimization, make sure the array includes all values from the component scope (such as props and state) that change over time and that are used by the effect. Otherwise, your code will reference stale values from previous renders. Learn more about how to deal with functions and what to do when the array values change too often.</p>
+<p>If you want to run an effect and clean it up only once (on mount and unmount), you can pass an empty array ([]) as a second argument. This tells React that your effect doesn’t depend on any values from props or state, so it never needs to re-run. This isn’t handled as a special case — it follows directly from how the dependencies array always works.</p>
+<p>If you pass an empty array ([]), the props and state inside the effect will always have their initial values. While passing [] as the second argument is closer to the familiar componentDidMount and componentWillUnmount mental model, there are usually better solutions to avoid re-running effects too often. Also, don’t forget that React defers running useEffect until after the browser has painted, so doing extra work is less of a problem.</p>
+<p>We recommend using the exhaustive-deps rule as part of our eslint-plugin-react-hooks package. It warns when dependencies are specified incorrectly and suggests a fix. - React documentation</p>
+</blockquote>
+<p>That seems like a lot to keep in mind for just one of the hooks. Could it be that some SoC is going to clear up things here?</p>
+<p>I am not going to list every single hook and strange API decision here. The point of this rant is the departure from my beloved FP towards some sadomasochistic melange of declarative and imperative programming.</p>
+<h2 id="classes-confuse-both-people-and-machines">Classes confuse both people and machines</h2>
+<p>No they don&#39;t ... 17 layers of inheritance confuse people and machines. Using classes as the blueprint for objects without more than one level depth and favouring composition is neither confusing nor complicated.</p>
+<p>Classes are a very powerful metaphor and tend to encapsulate a lot of meaning behind a single word. This is why they are so prominent in the UI implementations.</p>
+<p>It is hard for me to comprehend what is more complicated about classes compared to having one function that does everything.</p>
+<h2 id="rules-of-hooks">Rules of hooks</h2>
+<p><a href="https://reactjs.org/docs/hooks-rules.html">Rules</a> again masterfully copy/pasted text from the original documentation.</p>
+<blockquote>
+<p>Hooks are JavaScript functions, but you need to follow two rules when using them. We provide a linter plugin to enforce these rules automatically...</p>
+</blockquote>
+<h3 id="only-call-hooks-at-the-top-level">Only Call Hooks at the Top Level</h3>
+<p>As the documentation states we must not call hooks inside:</p>
+<ul>
+<li>loops</li>
+<li>conditions</li>
+<li>nested functions</li>
+</ul>
+<blockquote>
+<p>Instead, always use Hooks at the top level of your React function. By following this rule, you ensure that Hooks are called in the same order each time a component renders. That’s what allows React to correctly preserve the state of Hooks between multiple useState and useEffect calls. (If you’re curious, we’ll explain this in depth below.)</p>
+</blockquote>
+<p>Wait, wait... WHAT!? Order of execution, limitation of where and how you write them inside the function body? This smells of a bad abstraction. A very leaky one. <strong>If the developer needs to understand the low level implementation of the hooks in order to use them correctly, it simply means the whole design of this solution is messed up.</strong></p>
+<p>Hm ... maybe if the functions that are returning objects could have a slighlty different syntax that allows for like &quot;construction&quot; logic to be separated from the rest of the function body... So call them like in a constructor or something?</p>
+<h3 id="only-call-hooks-from-react-functions">Only Call Hooks from React Functions</h3>
+<blockquote>
+<p>Don’t call Hooks from regular JavaScript functions. Instead, you can:</p>
+</blockquote>
+<ul>
+<li>&quot;Call Hooks from React function components.&quot;</li>
+<li>&quot;Call Hooks from custom Hooks (we’ll learn about them on the next page).&quot;</li>
+</ul>
+<blockquote>
+<p>By following this rule, you ensure that all stateful logic in a component is clearly visible from its source code.</p>
+</blockquote>
+<p>So much for logic reuse, test, inject... This contradicts the earlier statement that &quot;Hooks are JavaScript functions...&quot;. Functions in JS can be called inside other functions that are not bound to a specific library.</p>
+<h3 id="explanation">Explanation</h3>
+<p>There is the <a href="https://reactjs.org/docs/hooks-rules.html#explanation">explanation</a> given for the rules.</p>
+<p>My arguments agains hooks come not from missunderstanding of the developers&#39; arguments. Neither they are related to me not writing hooks.</p>
+<p>This is a solution with obvious drawbacks and limitations. The more you use it, the more your components will become impure. I like the clear separation between functional and class components.</p>
+<p>It is easy to understand - when the component is class based it encapsulates state. A functional component on the other hand used to be referentially transparent.</p>
+<h2 id="summary">Summary</h2>
+<p>I do understand their value, especially when you need to hack-off a bad design and frankestain something to make it work. I have also hit my fair share of edge cases over the past 3-4 years using React on production with the class components.</p>
+<p>However, in my work I am making a clear separation between stateful and pure React components. Stateful = class; Pure = function.</p>
+<p>If you expected me to give a solution - your expectation are not going to be met. I needed to vent my frustration from the direction this library it taking. Making the API more and more complex, instead of focusing on more modular approach opt-in approach.</p>
+<p>However, the addition of the <code>context</code> and <code>hooks</code> APIs is a warning sign to me. When I work with React I tend to isolate it down to the level of implementation detail. All my logic and state is extracted into service like software components. I use both classes and functions ... Class/arguments/method/propery decorators are super useful and make the code more expressive and easier to read.</p>
+
+    </article>
+            <footer class="main-footer"></footer>
+        </div>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-3573804-6"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+            gtag('config', 'UA-3573804-6');
+        </script>
+    </body>
+
+</html>
