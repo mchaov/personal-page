@@ -102,7 +102,7 @@ A simple example of the `Foo.ts`:
 
 ```typescript
 export class Foo {
-    static state = {}
+    private static state = {}
 
     constructor() { }
 
