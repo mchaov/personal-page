@@ -7,10 +7,10 @@
         <meta name="apple-mobile-web-app-status-bar-style" content="black">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <meta name="description" content="ADD ABSTACT HERE">
+        <meta name="description" content="With the release of React 16.8 we got the much anticipated hooks! And immediatelly the whole dev community lost their collective mind about how amazing the hooks are! How much more functional we can write our React components/apps... whatever they are writing. Well, bad news - there is nothing functional about the code that uses hooks...">
         <meta name="HandheldFriendly" content="true">
         <meta name="MobileOptimized" content="320">
-        <title>mchaov.net | react hooks vs fp</title>
+        <title>mchaov.net | React Hooks vs FP</title>
         <meta name="theme-color" content="#ffffff">
         <link rel="stylesheet" type="text/css" href="/css/main.css" />
     </head>
@@ -83,9 +83,41 @@
 <h2 id="classes-confuse-both-people-and-machines">Classes confuse both people and machines</h2>
 <p>No they don&#39;t ... 17 layers of inheritance confuse people and machines. Using classes as the blueprint for objects without more than one level depth and favouring composition is neither confusing nor complicated.</p>
 <p>Classes are a very powerful metaphor and tend to encapsulate a lot of meaning behind a single word. This is why they are so prominent in the UI implementations.</p>
-<p>It is hard for me to comprehend what is more complicated about classes compared to having one function that does everything.</p>
+<p>It is hard for me to comprehend what is more complicated about classes compared to having one function that does everything. BTW functions organised in a file with only partial visibility (a module if you will) is also sort of a &quot;class&quot;. Or sort of a namespace. Or sort of an object. The only reason we call them different names is because we all aggreed what we mean behind these words.</p>
+<p>A simple example of the <code>Foo.ts</code>:</p>
+<pre><code class="language-typescript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> Foo {
+    <span class="hljs-keyword">static</span> state = {}
+
+    <span class="hljs-keyword">constructor</span>(<span class="hljs-params"></span>) { }
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> doPrivateStuff() { }
+
+    <span class="hljs-keyword">static</span> doStuff() { }
+}
+
+<span class="hljs-comment">// is no different than this:</span>
+
+<span class="hljs-keyword">const</span> state = {}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">doPrivateStuff</span>(<span class="hljs-params"></span>) </span>{ }
+
+<span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">init</span>(<span class="hljs-params"></span>) </span>{ }
+
+<span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">doStuff</span>(<span class="hljs-params"></span>) </span>{ }
+
+<span class="hljs-comment">// or that as a matter of fact this:</span>
+
+<span class="hljs-keyword">const</span> state = {}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">doPrivateStuff</span>(<span class="hljs-params"></span>) </span>{ }
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> foo = {
+    init() { }
+    doStuff() { }
+}</code></pre>
+<p>I&#39;ve used all of these in different situations, but most importantly my decision depends on how the code is going to be imported and used. All of them have subtle differences when you look beyound the import/export and I will probably write a post about it at some point in time.</p>
 <h2 id="rules-of-hooks">Rules of hooks</h2>
-<p><a href="https://reactjs.org/docs/hooks-rules.html">Rules</a> again masterfully copy/pasted text from the original documentation.</p>
+<p><a href="https://reactjs.org/docs/hooks-rules.html">Rules</a> masterfully copy/pasted text from the original documentation.</p>
 <blockquote>
 <p>Hooks are JavaScript functions, but you need to follow two rules when using them. We provide a linter plugin to enforce these rules automatically...</p>
 </blockquote>

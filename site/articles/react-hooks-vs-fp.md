@@ -1,10 +1,10 @@
 !{{
     "dateCreated": 1597528385518,
     "dateUpdated": 1597528385518,
-    "pageTitle": "react hooks vs fp",
+    "pageTitle": "React Hooks vs FP",
     "tags": "[]",
     "id": "427ea99e-376f-493d-94d7-c961ffff7f8e",
-    "abstract": "ADD ABSTACT HERE"
+    "abstract": "With the release of React 16.8 we got the much anticipated hooks! And immediatelly the whole dev community lost their collective mind about how amazing the hooks are! How much more functional we can write our React components/apps... whatever they are writing. Well, bad news - there is nothing functional about the code that uses hooks..."
 }}
 
 # React Hooks vs FP
@@ -84,11 +84,48 @@ No they don't ... 17 layers of inheritance confuse people and machines. Using cl
 
 Classes are a very powerful metaphor and tend to encapsulate a lot of meaning behind a single word. This is why they are so prominent in the UI implementations.
 
-It is hard for me to comprehend what is more complicated about classes compared to having one function that does everything.
+It is hard for me to comprehend what is more complicated about classes compared to having one function that does everything. BTW functions organised in a file with only partial visibility (a module if you will) is also sort of a "class". Or sort of a namespace. Or sort of an object. The only reason we call them different names is because we all aggreed what we mean behind these words.
+
+A simple example of the `Foo.ts`:
+
+```typescript
+export class Foo {
+    static state = {}
+
+    constructor() { }
+
+    private static doPrivateStuff() { }
+
+    static doStuff() { }
+}
+
+// is no different than this:
+
+const state = {}
+
+function doPrivateStuff() { }
+
+export function init() { }
+
+export function doStuff() { }
+
+// or that as a matter of fact this:
+
+const state = {}
+
+function doPrivateStuff() { }
+
+export const foo = {
+    init() { }
+    doStuff() { }
+}
+```
+
+I've used all of these in different situations, but most importantly my decision depends on how the code is going to be imported and used. All of them have subtle differences when you look beyound the import/export and I will probably write a post about it at some point in time.
 
 ## Rules of hooks
 
-[Rules](https://reactjs.org/docs/hooks-rules.html) again masterfully copy/pasted text from the original documentation.
+[Rules](https://reactjs.org/docs/hooks-rules.html) masterfully copy/pasted text from the original documentation.
 
 >Hooks are JavaScript functions, but you need to follow two rules when using them. We provide a linter plugin to enforce these rules automatically...
 
