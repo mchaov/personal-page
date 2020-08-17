@@ -22,7 +22,7 @@ The reason I am putting this rant online is because of conversations I had with 
 
 The main thing that got me to write this is a statement from a developer "they want to write only functional code, thus using component implementations with functions and hooks".
 
-TD DL => this is not how functional programming works...
+TL DR => this is not how functional programming works...
 
 Here follows my take based on my experience with FP and React.
 
