@@ -171,7 +171,8 @@
 <p>I do understand hooks value, especially when you need to hack-off a bad design and frankestain something to make it work. I have also hit my fair share of edge cases over the past 3-4 years using React on production with both class and functional components.</p>
 <p>However, in my work I am making a clear separation between stateful and pure React components. Stateful = class; Pure = function.</p>
 <p>Functional code is deterministic and follows specific rules. You can&#39;t just write a function put a ton of side-effects inside and call it &quot;functional&quot;.</p>
-<p>If you expected me to give a solution - your expectation are not going to be met. I needed to vent my frustration from the direction this library it taking. Making the API more and more complex, instead of focusing on more modular opt-in approach. Confusing FP newbies onto what is FP.</p>
+<p>If you expected me to give a detailed solution - your expectation are not going to be met. I needed to vent my frustration from the direction this library is taking. Making the API more and more complex, instead of focusing on more modular opt-in approach. Confusing FP newbies onto what is FP.</p>
+<p>The easiest solution is for your entire state to be constructed outside of the world of React and pass it as props. This requiures React to be a part of your application and not your application shell...</p>
 <p>The addition of the <code>context</code> and <code>hooks</code> APIs is a warning sign to me. When I work with React I tend to isolate it down to the level of implementation detail responsible for the UI. All my logic and state is extracted into service like software components. I use both classes and functions ... Class/arguments/method/propery decorators are super useful and make the code expressive and easier to read. In short - I do applications that use React as one of many components. I don&#39;t do React applications!</p>
 
     </article>
