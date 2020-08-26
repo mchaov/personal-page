@@ -189,6 +189,6 @@ Functional code is deterministic and follows specific rules. You can't just writ
 
 If you expected me to give a detailed solution - your expectation are not going to be met. I needed to vent my frustration from the direction this library is taking. Making the API more and more complex, instead of focusing on more modular opt-in approach. Confusing FP newbies onto what is FP.
 
-The easiest solution is for your entire state to be constructed outside of the world of React and pass it as props. This requiures React to be a part of your application and not your application shell...
+The easiest solution is for your entire state to be constructed outside of the world of React and pass it as props. This requires React to be a part of your application and not your application shell...
 
 The addition of the `context` and `hooks` APIs is a warning sign to me. When I work with React I tend to isolate it down to the level of implementation detail responsible for the UI. All my logic and state is extracted into service like software components. I use both classes and functions ... Class/arguments/method/propery decorators are super useful and make the code expressive and easier to read. In short - I do applications that use React as one of many components. I don't do React applications!
