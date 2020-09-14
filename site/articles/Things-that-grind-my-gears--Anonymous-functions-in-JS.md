@@ -4,7 +4,7 @@
     "pageTitle": "Things that grind my gears  Anonymous functions in JS",
     "tags": "[]",
     "id": "bde6a5ca-3a9a-4037-a13f-0549b8761b9c",
-    "abstract": "ADD ABSTACT HERE"
+    "abstract": "Why do JS developers assign lambdas to constants? Why is this a bad practice?"
 }}
 
-# Things that grind my gears  Anonymous functions in JS
+# Things that grind my gears - Anonymous functions in JS
