@@ -14,6 +14,10 @@
             "dest": "/index.html"
         },
         {
+            "src": "/abstraction-101",
+            "dest": "/abstraction-101.html"
+        },
+        {
             "src": "/hello-world",
             "dest": "/hello-world.html"
         },

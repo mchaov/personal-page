@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="description" content="One of the most important tools at our disposal in every field of science and our daily lives is abstraction! It doesn't enable us to solve problems faster nor it makes our sistems more efficient. Abstraction allows us to grasp complex ideas/problems and discuss them by pin-pointing the important part and ignoring the irrelevant details. It is helping us humans think and express ourselves, rather than helping computers compute.">
+        <meta name="HandheldFriendly" content="true">
+        <meta name="MobileOptimized" content="320">
+        <title>mchaov.net | Abstraction 101</title>
+        <meta name="theme-color" content="#ffffff">
+        <link rel="stylesheet" type="text/css" href="/css/main.css" />
+    </head>
+
+    <body>
+        <div class="main">
+            <header class="main-header">
+    <h1>Martin Chaov chasing bits...</h1>
+</header>
+            <menu class="main-menu">
+    <a href="/">Home</a> |
+    <a target="_blank" rel="noopener" href="https://github.com/mchaov">GitHub</a> |
+    <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/martin-chaov-79912910/">LinkedIn</a> |
+    <a target="_blank" rel="noopener" href="https://twitter.com/raziel_pld">Twitter</a> |
+    <a target="_blank" rel="noopener" href="https://www.facebook.com/martin.chaov">Facebook</a>
+</menu>
+            <article class="markdown-body"><p></p>
+        <h1 id="abstraction-101">Abstraction 101</h1>
+<ul>
+<li><a href="#abstraction-101">Abstraction 101</a><ul>
+<li><a href="#what-is-an-abstraction">What is an abstraction?</a><ul>
+<li><a href="#it-is-something-that-we-do-every-day">It is something that we do every day</a></li>
+<li><a href="#using-something-without-understanding-the-internals">Using something without understanding the internals</a></li>
+<li><a href="#abstraction-solves-the-issues-at-the-design-level">Abstraction solves the issues at the design level</a></li>
+</ul>
+</li>
+<li><a href="#abstraction-layers-in-a-modern-computer">Abstraction layers in a modern computer</a></li>
+<li><a href="#what-happens-when-our-explanation-fails">What happens when our explanation fails?</a><ul>
+<li><a href="#leaky-abstractions">Leaky abstractions</a></li>
+</ul>
+</li>
+<li><a href="#is-there-such-a-thing-as-a-bad-abstraction">Is there such a thing as a bad abstraction?</a><ul>
+<li><a href="#why-is-this-abstraction-more-relevant-than-any-other-abstraction-i-could-do">Why is this abstraction more relevant than any other abstraction I could do?</a></li>
+<li><a href="#why-was-this-abstraction-chosen-to-solve-this-set-of-problems">Why was this abstraction chosen to solve this set of problems?</a></li>
+<li><a href="#is-this-the-right-level-of-abstraction">Is this the right level of abstraction?</a></li>
+</ul>
+</li>
+<li><a href="#what-is-a-good-abstraction">What is a GOOD abstraction?</a></li>
+<li><a href="#one-more-thing">One more thing!</a></li>
+<li><a href="#further-reading">Further reading</a></li>
+</ul>
+</li>
+</ul>
+<p>In this post, I am going to explore some of the questions young programmers face with regards to abstractions in the very early stages of their professional development.</p>
+<p>This one doesn&#39;t contain code ... abstraction as a concept is best explained without source code. However, in a follow up I am going to explore code examples with TypeScript.</p>
+<p>The goal of this post is to help new developers understand the concept of abstraction and not delve into specific textbook examples with animals or cars and so on...</p>
+<p>However, I am going to address a couple of questions such as:</p>
+<ul>
+<li>What is an abstraction?</li>
+<li>What is a bad abstraction?</li>
+<li>What is a good abstraction?</li>
+<li>How do you know if you are doing it right?</li>
+</ul>
+<h2 id="what-is-an-abstraction">What is an abstraction?</h2>
+<p>One of the most important tools at our disposal in every field of science and our daily lives is abstraction! It doesn&#39;t enable us to solve problems faster nor it makes our sistems more efficient. Abstraction allows us to grasp complex ideas/problems and discuss them by pin-pointing the important part and ignoring the irrelevant details. It is helping us humans think and express ourselves, rather than helping computers compute.</p>
+<p>Some of the things we can read about abstraction in textbooks or online not exclusively related to programming:</p>
+<h3 id="it-is-something-that-we-do-every-day">It is something that we do every day</h3>
+<p>We use a lot of abstractions in our daily lives. Natural language is a good example of that! What better example than it there is? We are using this abstraction to convey our thought and feelings based on agreed-upon meanings of the words. And that is amazing! Speech is a secondary function of our respiratory system (this is why it is hard to speak when you are trying to catch your breath).</p>
+<p>As abstractions, words have meaning - some of them more than one (a.k.a. homonyms): left, park, bat, company. Some of them have contextual meaning: sunshine - talking about the light coming from the sun or when addressing a beloved one.</p>
+<h3 id="using-something-without-understanding-the-internals">Using something without understanding the internals</h3>
+<p>Like a TV or a computer or any other box with buttons... One of the most important concepts in programming! It allows us to program against only an interface. This allows us to change the implementation of specific components without touching others. It also allows us to create interfaces to our components which define &quot;WHAT&quot; the component can do, and not &quot;HOW&quot; it does it. Abstractions allow us to think of big and complicated concepts as small simple &quot;things&quot;.</p>
+<h3 id="abstraction-solves-the-issues-at-the-design-level">Abstraction solves the issues at the design level</h3>
+<p>That&#39;s a big one, but it doesn&#39;t mean much to a beginner… However, this entire post is an explanation of the claim!</p>
+<p>Simple answer to a big question... Let&#39;s start by narrowing down what is abstraction a bit more!</p>
+<p><strong>Abstractions have only one reason to exist - to be 100% specific.</strong> If abstraction has multiple meanings it becomes ambiguous. Abstractions that are open to interpretation are a source of problems and misunderstanding not only in CS but in other fields as well.</p>
+<blockquote>
+<p>The essence of abstractions is preserving information that is relevant in a given context, and forgetting information that is irrelevant in that context. - John Vogel Guttag</p>
+</blockquote>
+<p>Let&#39;s get to some examples, shall we? We use different levels of abstraction to discuss the different aspects of our daily lives.</p>
+<p>Consider the following stories: The Matrix, The Lord of The Rings, Spiderman, Star Wars, Harry Potter.</p>
+<p>We can discuss all of these by using abstractions such as:</p>
+<ul>
+<li>Story framework: &quot;the heroes journey&quot; where a young protagonist meets an old wise sage. Tragedy happens in the life of the hero which triggers his growth into the master of their destiny overcoming adversities and so on...</li>
+<li>Story setting (genre): &quot;fantasy&quot;, &quot;sci-fi&quot;, &quot;steam-punk&quot;, etc.</li>
+<li>Story style: &quot;drama&quot;, &quot;comedy&quot;, &quot;action-adventure&quot;,</li>
+<li>Story structure: &quot;3 act structure&quot;, &quot;5 acts ...&quot;, &quot;in medias res&quot;</li>
+</ul>
+<p>Each of them is presenting us with a 100% focus on a specific aspect of the story while eliminating all other distractions...</p>
+<p>When we discuss story setting (genre) we are focused on world-building, setting the universe rules, etc. We are not discussing the storyline and the details about the protagonist and if they are called Neo, Frodo, Luke, etc. Of course, all of these abstractions are in a constant relationship between them. Example for that - if we chose a &quot;fantasy&quot; setting our protagonist&#39;s race will be constrained within the rules of this kind of world ... dwarfs, elves, orcs, humans, etc.</p>
+<p>If we choose &quot;elf&quot;, we would expect them to be slim and with high dexterity – this is the general perception of the elf created by fantasy-adventure literature. Not that we can&#39;t experiment but then we would be moving from one genre to another... Imagine a fat short elf who can&#39;t shoot arrows - this setting is more related to the comedy or parody genre.</p>
+<p>Let&#39;s get back to software… <strong>Everything about software is an abstraction!</strong> Software is written word – it is an expression of a problem in text... Every line of code we write is an abstraction on top of abstraction on top of an abstraction...</p>
+<p>Let&#39;s look at this simple for-loop:</p>
+<pre><code class="language-typescript">    <span class="hljs-keyword">const</span> arr = [<span class="hljs-comment">/* stuff to loop */</span>];
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; arr.length; i++){
+        <span class="hljs-keyword">if</span>(i % <span class="hljs-number">2</span> === <span class="hljs-number">0</span>){
+            <span class="hljs-built_in">console</span>.log(arr[i])
+        }
+    }</code></pre>
+<p>This code means nothing to your CPU! Its only reason to exist in this form is to make it readable for the developer!</p>
+<p>So let&#39;s check on some of the major layers of abstraction of a computer system. These are not all and I am vastly simplifying here (abstracting if you will) but are some of the more prominent layers.</p>
+<h2 id="abstraction-layers-in-a-modern-computer">Abstraction layers in a modern computer</h2>
+<ol>
+<li>We start by reminding ourselves that our computers run on electricity. Most importantly - electrons traveling from one place to another. This cable from the wall socket going into your PC is the only source of power. Yet you somehow you can read this post or watch a video online, play games, you get the point... Moving the electrons by hand is quite impossible so we add a layer of abstraction on top of that!</li>
+<li>And the transistors are born. They are allowing you to decide if you want to pass the electrical current or not. While that is quite simple on its own it provides the foundation for modern computing.</li>
+<li>Deciding to pass current or not is enough to present a 1 or a 0 which allows you to start thinking about simple rules on when to pass 1 or 0. Happily, there is already a well-defined field of Boolean algebra. When we apply the Boolean algebra to combinations of transistors – we get logic gates. All the Boolean algebra rules can be encapsulated in terms of entities called logic gates – each of them defines a different relationship between your inputs and generates an output. You may think about this as hardware if/else  It&#39;s just another layer of abstraction on top of transistors. </li>
+<li>We can arrange all of these in different ways to do some arithmetic. A circuit called ALU is born out of our logic gates which allows us to do arithmetic logic in binary. We are now focusing on arithmetic while arranging complex grids of transistors but we are no longer thinking in terms of transistors and electric current. We are thinking about math!</li>
+<li>Up to this point we fed bits one by one into the circuits. Since we can create circuits – we now can create memory circuits such that they hold on to a 0 or a 1 until electric current changes it. Memory is just another type of circuit, but we already transitioned to naming them according to their use case.</li>
+<li>Then we get circuits containing other circuits like the CPU which is yet another level of abstraction on top of logic gates.</li>
+<li>Then there is the orchestrator of all things that is the OS which allows you easy access to resources through APIs.</li>
+<li>And then we have the web browsers! In essence, the software is an abstraction that allows you to orchestrate the movement of electrons around until you eventually get blinking text on the screen. Each new layer of abstraction that we add simplifies our understanding of what is software.</li>
+</ol>
+<p>Well, why did I go to this example and not with a simple code one that explains that a dog is a mammal and an animal... This is because textbook examples of abstraction tend to focus specifically on the OOP aspect of it. In the example above we see the power of abstraction at play! Each layer I&#39;ve described hides the underlying one in such a way that we change our mental model when we switch. Each one of these layers has been a revolution in our understanding of computers and their possible applications. This is the power of abstraction. This is how abstraction solves complexity.</p>
+<p>In fact...</p>
+<blockquote>
+<p>All problems in computer science can be solved by another level of indirection, except for the problem of too many layers of indirection. – David J. Wheeler</p>
+</blockquote>
+<p>In software development, we do the same type of layering every day. Think about your favorite framework, it does a lot of &quot;magic&quot; for you. Whether it is abstracting away what it means to be a web application and you only have to care about the presented information like in WordPress, Squarespace, Drupal, and others. Or it is deeper and allows you to orchestrate components in various ways to achieve your business requirements like Angular and NestJS. Or like React that is abstracting away the DOM and its events.</p>
+<h2 id="what-happens-when-our-explanation-fails">What happens when our explanation fails?</h2>
+<p>The best way to understand a concept is to observe where it fails. We already know that every complex problem can be solved by adding another layer of abstraction between us. <strong>This means more confusion!</strong> Adding a new layer of abstraction should help clarify things more than the added indirection confuses them.</p>
+<p>Indirection – I prefer to call it the &quot;Mario Principle&quot; or let&#39;s play &quot;find the right level of abstraction&quot;!</p>
+<p>Think about this, something doesn&#39;t work. Your code looks fine, and, in that rare case, it is! Turns out it is a web browser bug, how do you solve it? Programming specifically to address a big with one environment means something is wrong with the abstraction you use. This applies to OS bugs, hardware bugs, video drivers, and everything that makes your computer systems work.</p>
+<p><strong>One way of abstractions to fail is for them to leak!</strong></p>
+<h3 id="leaky-abstractions">Leaky abstractions</h3>
+<p>One of the things that happen when abstractions fail is for them to leak, spilling details about the underlying layer onto the next one. Abstractions leak when details are not completely hidden by the abstraction. The developer using it has to worry about the details and understand them - to correctly use the abstraction.</p>
+<p>Imagine a chunk of memory that contains an image. Each cell describes the information needed to print one pixel – it&#39;s a number!</p>
+<p>There are a couple of ways you can loop through them:</p>
+<p>Loop by row:<br><img src="./../i/loop-by-row.gif" alt="Loop by row">  </p>
+<p>Loop by column:<br><img src="./../i/loop-by-col.gif" alt="Loop by column">  </p>
+<p>Loop by block:<br><img src="./../i/loop-by-block.gif" alt="Loop by block">  </p>
+<p><strong>Which one is the fastest to execute?</strong></p>
+<p>Well, it depends, sadly on many things – but mostly on the type of CPU and size of its internal caches. And that is a problem! Performance in terms of &quot;speed of computation&quot; is important in many aspects of our software. From that bank transaction to the processing of your online shop order, etc. But more importantly, critical systems that run in real-time inside of an airplane, submarine, and others. So how do you optimize this if you don&#39;t understand the underlying abstractions? This is what it means for an abstraction to leak.</p>
+<p>In this case, when performance goes bad you look at your for loop and wonder: what did I do wrong? The answer is simple: <strong>You did nothing wrong!</strong></p>
+<p>The fastest on our modern CPUs would be to loop by blocks! Now you could have some fun in determining the size of the block  Or read the manual for the CPU you use! And please focus on that it is CPU and not CPUs!!!</p>
+<p>If you dig up into the manufacturer&#39;s manual you are going to see that for x86 Intel CPUs blocking is faster as long the blocks&#39; sizes fit in the CPU cache </p>
+<blockquote>
+<p>Transform the memory domain of a given problem into smaller chunks, rather than sequentially traversing through the entire memory domain. Each chunk should be small enough to fit all the data for a given computation into the cache, thereby maximizing data reuse. - Intel 64 and IA-32 Architectures Optimisation Reference Manual, Figure 4-5 Loop Blocking Access Pattern</p>
+</blockquote>
+<p>By the way for AMD it is a different situation!</p>
+<p><strong>Your &quot;for&quot; loops are not slow – you are just suffering from too many layers of abstraction that you do not understand!</strong> That&#39;s more or less what to expect from abstractions that fail/leak.</p>
+<p>Although leaks can be considered failures of the abstraction itself. Sometimes that&#39;s the best we could do…</p>
+<p>You could also search online for other leaky abstractions such as:</p>
+<ul>
+<li>Network – TCP/IP</li>
+<li>SQL</li>
+<li>NFS, SMB</li>
+<li>PNGs</li>
+<li>Spectre/Meltdown</li>
+</ul>
+<h2 id="is-there-such-a-thing-as-a-bad-abstraction">Is there such a thing as a bad abstraction?</h2>
+<p>Identifying &quot;bad&quot; abstraction is a chicken and egg problem. It is very hard to give a single simple answer to these questions. As with all good questions in CS, the only correct answer is: &quot;It depends!&quot;!<br>As we said earlier too much indirection is bad, but to reduce over-abstraction You need to understand the actual reason behind it...</p>
+<p>The following questions might help in shaping some answer to the question if an abstraction is bad.</p>
+<h3 id="why-is-this-abstraction-more-relevant-than-any-other-abstraction-i-could-do">Why is this abstraction more relevant than any other abstraction I could do?</h3>
+<p>This includes the understanding idea of the particular abstraction itself, not just calling it bad because of a lack of understanding of the subject matter! And that&#39;s not enough - You need to know a better, simpler solution to prove that the current is over abstracted/confusing.</p>
+<h3 id="why-was-this-abstraction-chosen-to-solve-this-set-of-problems">Why was this abstraction chosen to solve this set of problems?</h3>
+<p>How did people stumble upon those problems and decide they were worth solving? What other abstractions did they try to end up with that is so complex?</p>
+<h3 id="is-this-the-right-level-of-abstraction">Is this the right level of abstraction?</h3>
+<p>The abstraction I am using could be solving the right problem on the wrong layer. Are we solving security in the application layer? Maybe it should be somewhere else ;)</p>
+<p><strong>BAD ABSTRACTIONS ADD MORE CONFUSION!!!</strong></p>
+<blockquote>
+<p>The road to hell is paved with good intentions! - Samuel Johnson</p>
+</blockquote>
+<p>Nobody starts to do abstraction because they want to make things harder and more confusing. Also in software (unlike in math), the quality of abstraction could degrade over time while it is being extended. Sometimes the abstractions we are going to stumble upon are the result of historical limitations, personal preferences, or the personal limits of whoever implemented it.</p>
+<p>Abstraction could be less than optimal and in the same time it could be the best one we could do!</p>
+<h2 id="what-is-a-good-abstraction">What is a GOOD abstraction?</h2>
+<p>As with the previous question, the right answer is: &quot;It depends!&quot; Is there such a thing as &quot;good&quot; abstraction? Sometimes we might not have access to the right level where abstraction should be done and need to patch up things as we go... Just look at the history of the HTTP protocol and you will find many such examples. Does that make HTTP a good or a bad abstraction? It is certainly useful and growing more and more complicated over time.</p>
+<p>As we said a little earlier: <strong>Adding a new layer of abstraction should help clarify things more than the added indirection confuses them.</strong> This is the best measurement we can provide.</p>
+<p>To evaluate one try checking the following about the abstraction you are questioning:</p>
+<ol>
+<li>Simplify reality -&gt; focus only on what is important. Does it require specific knowledge from the user?</li>
+<li>Divide and conquer -&gt; Does it find and isolate the different problems? Is it solving them them separately?</li>
+<li>Should not abstract because someone would probably someday eventually need to extend &quot;this&quot; with &quot;that&quot;. Simpler design is much more flexible than over abstracted complex design.</li>
+</ol>
+<h2 id="one-more-thing">One more thing!</h2>
+<p>Mastery of abstraction depends on the ability to articulate ideas!</p>
+<h2 id="further-reading">Further reading</h2>
+<p>Good articles on abstraction (in order of my preference):</p>
+<ul>
+<li><a href="https://www.joelonsoftware.com/2002/11/11/the-law-of-leaky-abstractions/">The law of leaky abstractions</a></li>
+<li><a href="https://wiki.c2.com/?TooMuchAbstraction">Too much abstraction</a></li>
+<li><a href="https://wiki.c2.com/?DoTheSimplestThingThatCouldPossiblyWork">Do the simplest thing that could possibly work</a></li>
+<li><a href="https://blog.codinghorror.com/the-wrong-level-of-abstraction/">The wrong level of abstraction</a></li>
+<li><a href="https://medium.com/ni-tech-talk/caught-in-a-bad-abstraction-55bfe6634b83">Caught in a bad abstraction</a></li>
+<li><a href="https://www.netguru.com/blog/how-use-abstraction-programming">How to use abstraction</a></li>
+</ul>
+<p>Intel docs:</p>
+<ul>
+<li><a href="https://software.intel.com/content/www/us/en/develop/articles/how-to-use-loop-blocking-to-optimize-memory-use-on-32-bit-intel-architecture.html">Loop blocking</a></li>
+<li><a href="https://software.intel.com/content/www/us/en/develop/articles/how-to-manipulate-data-structure-to-optimize-memory-use-on-32-bit-intel-architecture.html">Optimize DS memory use</a></li>
+<li><a href="https://software.intel.com/content/dam/develop/external/us/en/documents/64-ia-32-architectures-optimization-manual-144353.pdf">Architectures Optimization Manual</a></li>
+</ul>
+
+    </article>
+            <footer class="main-footer"></footer>
+        </div>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-3573804-6"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+            gtag('config', 'UA-3573804-6');
+        </script>
+    </body>
+
+</html>
