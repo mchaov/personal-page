@@ -121,15 +121,15 @@ In software development, we do the same type of layering every day. Think about 
 
 The best way to understand a concept is to observe where it fails. We already know that every complex problem can be solved by adding another layer of abstraction between us. **This means more confusion!** Adding a new layer of abstraction should help clarify things more than the added indirection confuses them.
 
-Indirection – I prefer to call it the "Mario Principle" or let's play "find the right level of abstraction"!
+Indirection – I prefer to call it the "Mario Principle" or let's play "find the right level of abstraction where the problem occurs"!
 
-Think about this, something doesn't work. Your code looks fine, and, in that rare case, it is! Turns out it is a web browser bug, how do you solve it? Programming specifically to address a big with one environment means something is wrong with the abstraction you use. This applies to OS bugs, hardware bugs, video drivers, and everything that makes your computer systems work.
+Something doesn't work... Your code looks fine, and, in that rare case, it is! Turns out it is a web browser bug, how do you solve it? Programming specifically to address a big with one environment means something is wrong with the abstraction you use. This applies to OS bugs, hardware bugs, video drivers, and everything that makes your computer systems work.
 
 **One way of abstractions to fail is for them to leak!**
 
 ### Leaky abstractions
 
-One of the things that happen when abstractions fail is for them to leak, spilling details about the underlying layer onto the next one. Abstractions leak when details are not completely hidden by the abstraction. The developer using it has to worry about the details and understand them - to correctly use the abstraction.
+One of the things that happen when abstractions fail is for them to leak, spilling details about the underlying layer into the next one. Abstractions leak when details are not completely hidden by the abstraction. The developer using it has to worry about the details and understand them - to correctly use the abstraction.
 
 Imagine a chunk of memory that contains an image. Each cell describes the information needed to print one pixel – it's a number!
 
@@ -172,7 +172,7 @@ You could also search online for other leaky abstractions such as:
 
 ## Is there such a thing as a bad abstraction?
 
-Identifying "bad" abstraction is a chicken and egg problem. It is very hard to give a single simple answer to these questions. As with all good questions in CS, the only correct answer is: "It depends!"!
+Identifying "bad" abstraction is a chicken and egg problem. It is very hard to give a single simple answer to that question. As with all good questions in CS, the only correct answer is: "It depends!"!
 As we said earlier too much indirection is bad, but to reduce over-abstraction You need to understand the actual reason behind it...
 
 The following questions might help in shaping some answer to the question if an abstraction is bad.
