@@ -70,7 +70,7 @@ Consider the following stories: The Matrix, The Lord of The Rings, Spiderman, St
 
 We can discuss all of these by using abstractions such as:
 
-- Story framework: "the heroes journey" where a young protagonist meets an old wise sage. Tragedy happens in the life of the hero which triggers his growth into the master of their destiny overcoming adversities and so on...
+- Story framework: "the hero's journey" where a young protagonist meets an old wise sage. Tragedy happens in the life of the hero which triggers his growth into the master of their destiny overcoming adversities and so on...
 - Story setting (genre): "fantasy", "sci-fi", "steam-punk", etc.
 - Story style: "drama", "comedy", "action-adventure",
 - Story structure: "3 act structure", "5 acts ...", "in medias res"
