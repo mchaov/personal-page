@@ -120,11 +120,11 @@
 <p>In software development, we do the same type of layering every day. Think about your favorite framework, it does a lot of &quot;magic&quot; for you. Whether it is abstracting away what it means to be a web application and you only have to care about the presented information like in WordPress, Squarespace, Drupal, and others. Or it is deeper and allows you to orchestrate components in various ways to achieve your business requirements like Angular and NestJS. Or like React that is abstracting away the DOM and its events.</p>
 <h2 id="what-happens-when-our-explanation-fails">What happens when our explanation fails?</h2>
 <p>The best way to understand a concept is to observe where it fails. We already know that every complex problem can be solved by adding another layer of abstraction between us. <strong>This means more confusion!</strong> Adding a new layer of abstraction should help clarify things more than the added indirection confuses them.</p>
-<p>Indirection – I prefer to call it the &quot;Mario Principle&quot; or let&#39;s play &quot;find the right level of abstraction&quot;!</p>
-<p>Think about this, something doesn&#39;t work. Your code looks fine, and, in that rare case, it is! Turns out it is a web browser bug, how do you solve it? Programming specifically to address a big with one environment means something is wrong with the abstraction you use. This applies to OS bugs, hardware bugs, video drivers, and everything that makes your computer systems work.</p>
+<p>Indirection – I prefer to call it the &quot;Mario Principle&quot; or let&#39;s play &quot;find the right level of abstraction where the problem occurs&quot;!</p>
+<p>Something doesn&#39;t work... Your code looks fine, and, in that rare case, it is! Turns out it is a web browser bug, how do you solve it? Programming specifically to address a big with one environment means something is wrong with the abstraction you use. This applies to OS bugs, hardware bugs, video drivers, and everything that makes your computer systems work.</p>
 <p><strong>One way of abstractions to fail is for them to leak!</strong></p>
 <h3 id="leaky-abstractions">Leaky abstractions</h3>
-<p>One of the things that happen when abstractions fail is for them to leak, spilling details about the underlying layer onto the next one. Abstractions leak when details are not completely hidden by the abstraction. The developer using it has to worry about the details and understand them - to correctly use the abstraction.</p>
+<p>One of the things that happen when abstractions fail is for them to leak, spilling details about the underlying layer into the next one. Abstractions leak when details are not completely hidden by the abstraction. The developer using it has to worry about the details and understand them - to correctly use the abstraction.</p>
 <p>Imagine a chunk of memory that contains an image. Each cell describes the information needed to print one pixel – it&#39;s a number!</p>
 <p>There are a couple of ways you can loop through them:</p>
 <p>Loop by row:<br><img src="./../i/loop-by-row.gif" alt="Loop by row">  </p>
@@ -150,20 +150,20 @@
 <li>Spectre/Meltdown</li>
 </ul>
 <h2 id="is-there-such-a-thing-as-a-bad-abstraction">Is there such a thing as a bad abstraction?</h2>
-<p>Identifying &quot;bad&quot; abstraction is a chicken and egg problem. It is very hard to give a single simple answer to these questions. As with all good questions in CS, the only correct answer is: &quot;It depends!&quot;!<br>As we said earlier too much indirection is bad, but to reduce over-abstraction You need to understand the actual reason behind it...</p>
+<p>Identifying &quot;bad&quot; abstraction is a chicken and egg problem. It is very hard to give a single simple answer to that question. As with all good questions in CS, the only correct answer is: &quot;It depends!&quot;!<br>As we said earlier too much indirection is bad, but to reduce over-abstraction You need to understand the actual reason behind it...</p>
 <p>The following questions might help in shaping some answer to the question if an abstraction is bad.</p>
 <h3 id="why-is-this-abstraction-more-relevant-than-any-other-abstraction-i-could-do">Why is this abstraction more relevant than any other abstraction I could do?</h3>
-<p>This includes the understanding idea of the particular abstraction itself, not just calling it bad because of a lack of understanding of the subject matter! And that&#39;s not enough - You need to know a better, simpler solution to prove that the current is over abstracted/confusing.</p>
+<p>This includes understanding the idea of the particular abstraction itself, not just calling it bad because of a lack of comprehension of the subject matter! And that&#39;s not enough - You need to know a better, simpler solution to prove that the current one is over abstracted/confusing.</p>
 <h3 id="why-was-this-abstraction-chosen-to-solve-this-set-of-problems">Why was this abstraction chosen to solve this set of problems?</h3>
-<p>How did people stumble upon those problems and decide they were worth solving? What other abstractions did they try to end up with that is so complex?</p>
+<p>How did people stumble upon those problems and decide they were worth solving? What other abstractions did they try to end up with one that is so complex?</p>
 <h3 id="is-this-the-right-level-of-abstraction">Is this the right level of abstraction?</h3>
 <p>The abstraction I am using could be solving the right problem on the wrong layer. Are we solving security in the application layer? Maybe it should be somewhere else ;)</p>
 <p><strong>BAD ABSTRACTIONS ADD MORE CONFUSION!!!</strong></p>
 <blockquote>
 <p>The road to hell is paved with good intentions! - Samuel Johnson</p>
 </blockquote>
-<p>Nobody starts to do abstraction because they want to make things harder and more confusing. Also in software (unlike in math), the quality of abstraction could degrade over time while it is being extended. Sometimes the abstractions we are going to stumble upon are the result of historical limitations, personal preferences, or the personal limits of whoever implemented it.</p>
-<p>Abstraction could be less than optimal and in the same time it could be the best one we could do!</p>
+<p>Nobody starts to do abstraction because they want to make things harder and more confusing. Also in software (unlike in math), the quality of abstraction could degrade over time while it is being extended. Sometimes the abstractions we are going to stumble upon are the result of historical limitations, personal preferences, or the personal limits of whoever designed/implemented it.</p>
+<p>Abstraction could be less than optimal and at the same time it could be the best one we could do!</p>
 <h2 id="what-is-a-good-abstraction">What is a GOOD abstraction?</h2>
 <p>As with the previous question, the right answer is: &quot;It depends!&quot; Is there such a thing as &quot;good&quot; abstraction? Sometimes we might not have access to the right level where abstraction should be done and need to patch up things as we go... Just look at the history of the HTTP protocol and you will find many such examples. Does that make HTTP a good or a bad abstraction? It is certainly useful and growing more and more complicated over time.</p>
 <p>As we said a little earlier: <strong>Adding a new layer of abstraction should help clarify things more than the added indirection confuses them.</strong> This is the best measurement we can provide.</p>
