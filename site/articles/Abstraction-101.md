@@ -179,11 +179,11 @@ The following questions might help in shaping some answer to the question if an 
 
 ### Why is this abstraction more relevant than any other abstraction I could do?
 
-This includes the understanding idea of the particular abstraction itself, not just calling it bad because of a lack of understanding of the subject matter! And that's not enough - You need to know a better, simpler solution to prove that the current is over abstracted/confusing.
+This includes understanding the idea of the particular abstraction itself, not just calling it bad because of a lack of comprehension of the subject matter! And that's not enough - You need to know a better, simpler solution to prove that the current one is over abstracted/confusing.
 
 ### Why was this abstraction chosen to solve this set of problems?
 
-How did people stumble upon those problems and decide they were worth solving? What other abstractions did they try to end up with that is so complex?
+How did people stumble upon those problems and decide they were worth solving? What other abstractions did they try to end up with one that is so complex?
 
 ### Is this the right level of abstraction?
 
@@ -193,9 +193,9 @@ The abstraction I am using could be solving the right problem on the wrong layer
 
 >The road to hell is paved with good intentions! - Samuel Johnson
 
-Nobody starts to do abstraction because they want to make things harder and more confusing. Also in software (unlike in math), the quality of abstraction could degrade over time while it is being extended. Sometimes the abstractions we are going to stumble upon are the result of historical limitations, personal preferences, or the personal limits of whoever implemented it.
+Nobody starts to do abstraction because they want to make things harder and more confusing. Also in software (unlike in math), the quality of abstraction could degrade over time while it is being extended. Sometimes the abstractions we are going to stumble upon are the result of historical limitations, personal preferences, or the personal limits of whoever designed/implemented it.
 
-Abstraction could be less than optimal and in the same time it could be the best one we could do!
+Abstraction could be less than optimal and at the same time it could be the best one we could do!
 
 ## What is a GOOD abstraction?
 
