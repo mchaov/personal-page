@@ -38,7 +38,7 @@ Let's check what React docs have to say about it:
 
 ## It’s hard to reuse stateful logic between components
 
-No it is not... It was never hard... However, it requires though and design upfront. State as implementation was never mandatory part of the component class or functional based. Most sensible devs I know of, did create the state outside of the React context and passed it as props. And that's all... it is easy to write, easy to maintain and extend, easy to share and test... React is not an application framework - this is not under it's domain of responsibilities.
+No it is not... It was never hard... However, it requires thought and design upfront. State as implementation was never mandatory part of the component class or functional based. Most sensible devs I know of, did create the state outside of the React context and passed it as props. And that's all... it is easy to write, easy to maintain and extend, easy to share and test... React is not an application framework - this is not under it's domain of responsibilities.
 
 >React doesn’t offer a way to “attach” reusable behavior to a component (for example, connecting it to a store).
 
