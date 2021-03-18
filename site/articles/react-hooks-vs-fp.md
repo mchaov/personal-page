@@ -171,7 +171,7 @@ So much for logic reuse, test, inject... This contradicts the earlier statement 
 
 There is the [explanation](https://reactjs.org/docs/hooks-rules.html#explanation) given for the rules.
 
-My arguments agains hooks comes not from missunderstanding of the developers' arguments. Neither they are related to me not writing hooks. Or being unwilling to do so.
+My arguments against hooks comes not from missunderstanding of the developers' arguments. Neither they are related to me not writing hooks. Or being unwilling to do so.
 
 This is a solution with obvious drawbacks and limitations. The more you use it, the more your components will become impure. I like the clear separation between functional and class components.
 
