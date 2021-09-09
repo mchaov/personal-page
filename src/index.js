@@ -81,7 +81,7 @@ function parseArticle(fullPath) {
         // output = output.replace("{{OG:URL}}", "");
         output = output.replace("{{OG:TITLE}}", t);
         output = output.replace("{{OG:DESC}}", meta.abstract);
-        output = output.replace("{{OG:IMG}}", "");
+        output = output.replace("{{OG:IMG}}", meta.ogImage || "https://mchaov.net/i/profile-2.jpg");
     }
 
     return { meta, output };
