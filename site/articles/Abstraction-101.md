@@ -3,6 +3,7 @@
     "dateUpdated": 1606116218953,
     "pageTitle": "Abstraction 101",
     "tags": "[]",
+    "ogImage": "https://mchaov.net/i/loop-by-block.gif",
     "id": "fcb1bcb7-ffb8-4741-a49d-3ed75331dd15",
     "abstract": "One of the most important tools at our disposal in every field of science and our daily lives is abstraction! It doesn't enable us to solve problems faster nor it makes our sistems more efficient. Abstraction allows us to grasp complex ideas/problems and discuss them by pin-pointing the important part and ignoring the irrelevant details. It is helping us humans think and express ourselves, rather than helping computers compute."
 }}
