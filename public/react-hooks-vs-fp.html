@@ -1,33 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="With the release of React 16.8 we got the much anticipated hooks! And immediatelly the whole dev community lost their collective mind about how amazing the hooks are! How much more functional we can write our React components/apps... whatever they are writing. Well, bad news - there is nothing functional about the code that uses hooks...">
-    <meta name="HandheldFriendly" content="true">
-    <meta name="MobileOptimized" content="320">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="description" content="With the release of React 16.8 we got the much anticipated hooks! And immediatelly the whole dev community lost their collective mind about how amazing the hooks are! How much more functional we can write our React components/apps... whatever they are writing. Well, bad news - there is nothing functional about the code that uses hooks..." />
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="MobileOptimized" content="320" />
     <title>mchaov.net | React Hooks vs FP</title>
-    <meta name="theme-color" content="#ffffff">
+    <meta name="theme-color" content="#ffffff" />
     <link rel="stylesheet" type="text/css" href="/css/main.css" />
-</head>
 
-<body>
-    <div class="main">
-        <header class="main-header">
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content=" | React Hooks vs FP" />
+    <meta property="og:description" content="With the release of React 16.8 we got the much anticipated hooks! And immediatelly the whole dev community lost their collective mind about how amazing the hooks are! How much more functional we can write our React components/apps... whatever they are writing. Well, bad news - there is nothing functional about the code that uses hooks..." />
+    <meta property="og:image" content="" />
+  </head>
+
+  <body>
+    <div class="main"><header class="main-header">
     <h1>Martin Chaov chasing bits...</h1>
-</header>
-        <menu class="main-menu">
+</header> <menu class="main-menu">
     <a href="/">Home</a> |
     <a target="_blank" rel="noopener" href="https://github.com/mchaov">GitHub</a> |
     <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/martin-chaov-79912910/">LinkedIn</a> |
     <a target="_blank" rel="noopener" href="https://twitter.com/raziel_pld">Twitter</a> |
     <a target="_blank" rel="noopener" href="https://www.facebook.com/martin.chaov">Facebook</a>
-</menu>
-        <article class="markdown-body"><p></p>
+</menu> <article class="markdown-body"><p></p>
         <h1 id="react-hooks-vs-fp">React Hooks vs FP</h1>
 <p>With the release of React 16.8 we got the much anticipated hooks! And immediatelly the whole dev community lost their collective mind about how amazing the hooks are! How much more functional we can write our React components/apps... whatever they are writing.</p>
 <p>I love functional programming. It makes me feel secure. I know this is not a property of the paradigm ... the code is as good as the developer who creates it. I&#39;ve seen very bad functional code, and very good OOP code. The functional code I produce is very dense - which may be good or bad depending on your perspective. What makes me feel secure is that I follow some simple rules:</p>
@@ -175,16 +179,18 @@
 <p>The easiest solution is for your entire state to be constructed outside of the world of React and pass it as props. This requires React to be a part of your application and not your application shell...</p>
 <p>The addition of the <code>context</code> and <code>hooks</code> APIs is a warning sign to me. When I work with React I tend to isolate it down to the level of implementation detail responsible for the UI. All my logic and state is extracted into service like software components. I use both classes and functions ... Class/arguments/method/propery decorators are super useful and make the code expressive and easier to read. In short - I do applications that use React as one of many components. I don&#39;t do React applications!</p>
 
-    </article>
-        <footer class="main-footer"></footer>
-    </div>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-84011057-1"></script>
+    </article> <footer class="main-footer"></footer></div>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-84011057-1"
+    ></script>
     <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'UA-84011057-1');
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "UA-84011057-1");
     </script>
-</body>
-
+  </body>
 </html>

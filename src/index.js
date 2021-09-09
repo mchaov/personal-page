@@ -66,13 +66,22 @@ function parseArticle(fullPath) {
 
     let output = undefined;
     if (meta.ready !== false) {
+
+        const t = generatePageTitle(meta.pageTitle);
+
         output = pageTemplate;
-        output = output.replace("{{PAGETITLE}}", generatePageTitle(meta.pageTitle));
+        output = output.replace("{{PAGETITLE}}", t);
         output = output.replace("{{PAGEDESC}}", meta.abstract);
         output = output.replace("{{HEADER}}", html.HEADER);
         output = output.replace("{{CONTENT}}", parcedContent);
         output = output.replace("{{MENU}}", html.MENU);
         output = output.replace("{{FOOTER}}", html.FOOTER);
+
+        // FB
+        // output = output.replace("{{OG:URL}}", "");
+        output = output.replace("{{OG:TITLE}}", t);
+        output = output.replace("{{OG:DESC}}", meta.abstract);
+        output = output.replace("{{OG:IMG}}", "");
     }
 
     return { meta, output };
