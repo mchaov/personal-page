@@ -132,6 +132,9 @@ function parseArticles(paths) {
     homeOutput = homeOutput.replace("{{CONTENT}}", `<div class="markdown-body">${homePageContent}</div>`);
     homeOutput = homeOutput.replace("{{MENU}}", html.MENU);
     homeOutput = homeOutput.replace("{{FOOTER}}", html.FOOTER);
+    homeOutput = homeOutput.replace("{{OG:TITLE}}", "Martin Chaov chasing bits...");
+    homeOutput = homeOutput.replace("{{OG:DESC}}", "Personal blog where I explore topics that are interesting to me :)");
+    homeOutput = homeOutput.replace("{{OG:IMG}}", "https://mchaov.net/i/profile.jpg");
 
     writeFileSync(
         path.join(outFolder, `index.html`),
