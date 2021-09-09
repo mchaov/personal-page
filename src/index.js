@@ -64,13 +64,16 @@ function parseArticle(fullPath) {
         ${marked(content.replace(metaRegex, ""))}
     </article>`;
 
-    let output = pageTemplate;
-    output = output.replace("{{PAGETITLE}}", generatePageTitle(meta.pageTitle));
-    output = output.replace("{{PAGEDESC}}", meta.abstract);
-    output = output.replace("{{HEADER}}", html.HEADER);
-    output = output.replace("{{CONTENT}}", parcedContent);
-    output = output.replace("{{MENU}}", html.MENU);
-    output = output.replace("{{FOOTER}}", html.FOOTER);
+    let output = undefined;
+    if (meta.ready !== false) {
+        output = pageTemplate;
+        output = output.replace("{{PAGETITLE}}", generatePageTitle(meta.pageTitle));
+        output = output.replace("{{PAGEDESC}}", meta.abstract);
+        output = output.replace("{{HEADER}}", html.HEADER);
+        output = output.replace("{{CONTENT}}", parcedContent);
+        output = output.replace("{{MENU}}", html.MENU);
+        output = output.replace("{{FOOTER}}", html.FOOTER);
+    }
 
     return { meta, output };
 }
@@ -84,7 +87,8 @@ function parseArticles(paths) {
                 pth: path.parse(fullPath),
                 article: parseArticle(fullPath),
             }
-        });
+        })
+        .filter(x => x.article.output !== undefined);
 
     // write all articles to FS
     articles.forEach(x => {
@@ -107,7 +111,7 @@ function parseArticles(paths) {
         .map(x => {
             let article = articleAbstractTemplate;
             article = article.replace("{{TITLE}}", x.pageTitle);
-            article = article.replace("{{DATE}}", new Date(x.dateCreated).toLocaleString());
+            article = article.replace("{{DATE}}", new Date(x.dateCreated).toUTCString());
             article = article.replace("{{ABSTRACT}}", x.abstract);
             article = article.replace("{{LINK}}", `/${x.url}.html`);
             return article;

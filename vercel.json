@@ -22,6 +22,10 @@
             "dest": "/hello-world.html"
         },
         {
+            "src": "/performance-101",
+            "dest": "/performance-101.html"
+        },
+        {
             "src": "/react-hooks-vs-fp",
             "dest": "/react-hooks-vs-fp.html"
         }
