@@ -62,7 +62,7 @@ function getStructuredData(title, image, datePublished, dateModified) {
     {
       "@context": "https://schema.org",
       "@type": "Article",
-      "headline": ${title},
+      "headline": "${title}",
       "image": ["${image}"],
       "datePublished": "${datePublished}",
       "author": [{
