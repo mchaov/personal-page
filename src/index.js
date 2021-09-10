@@ -66,18 +66,15 @@ function parseArticle(fullPath) {
 
     let output = undefined;
     if (meta.ready !== false) {
-
-        const t = generatePageTitle(meta.pageTitle);
-
         output = pageTemplate;
-        output = output.replace("{{PAGETITLE}}", t);
+        output = output.replace("{{PAGETITLE}}", generatePageTitle(meta.pageTitle));
         output = output.replace("{{PAGEDESC}}", meta.abstract);
         output = output.replace("{{HEADER}}", html.HEADER);
         output = output.replace("{{CONTENT}}", parcedContent);
         output = output.replace("{{MENU}}", html.MENU);
         output = output.replace("{{FOOTER}}", html.FOOTER);
 
-        output = output.replace("{{OG:TITLE}}", t);
+        output = output.replace("{{OG:TITLE}}", meta.pageTitle);
         output = output.replace("{{OG:DESC}}", meta.abstract);
         output = output.replace("{{OG:IMG}}", meta.ogImage || "https://mchaov.net/i/profile-2.jpg");
     }
