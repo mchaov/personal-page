@@ -64,7 +64,7 @@ function getStructuredData(title, image, datePublished, dateModified) {
       "@type": "Article",
       "headline": ${title},
       "image": ["${image}"],
-      "datePublished": ${datePublished},
+      "datePublished": "${datePublished}",
       "author": [{
           "@type": "Person",
           "name": "Martin Chaov",
