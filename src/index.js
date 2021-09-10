@@ -56,6 +56,25 @@ function generatePageTitle(title) {
     return "";
 }
 
+function getStructuredData(title, image, datePublished, dateModified) {
+    return `
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": ${title},
+      "image": [${image}],
+      "datePublished": ${datePublished},
+      "author": [{
+          "@type": "Person",
+          "name": "Martin Chaov",
+          "url": "https://mchaov.net"
+        }]
+    }
+    </script>
+`
+}
+
 function parseArticle(fullPath) {
     const content = readFileAsString(fullPath);
     const meta = extractMeta(content);
@@ -77,6 +96,13 @@ function parseArticle(fullPath) {
         output = output.replace("{{OG:TITLE}}", meta.pageTitle);
         output = output.replace("{{OG:DESC}}", meta.abstract);
         output = output.replace("{{OG:IMG}}", meta.ogImage || "https://mchaov.net/i/profile-2.jpg");
+
+        output = output.replace("{{JSON:LD}}", getStructuredData(
+            meta.pageTitle,
+            meta.ogImage || "https://mchaov.net/i/profile-2.jpg",
+            new Date(meta.dateCreated).toUTCString(),
+            new Date(meta.dateUpdated).toUTCString()
+        ));
     }
 
     return { meta, output };
