@@ -159,6 +159,13 @@ function parseArticles(paths) {
     homeOutput = homeOutput.replace("{{OG:DESC}}", "Personal blog where I explore topics that are interesting to me :)");
     homeOutput = homeOutput.replace("{{OG:IMG}}", "https://mchaov.net/i/profile.jpg");
 
+    homeOutput = homeOutput.replace("{{JSON:LD}}", getStructuredData(
+        "",
+        "https://mchaov.net/i/profile-2.jpg",
+        "",
+        ""
+    ));
+
     writeFileSync(
         path.join(outFolder, `index.html`),
         homeOutput
