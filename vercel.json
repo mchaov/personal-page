@@ -18,16 +18,20 @@
             "dest": "/abstraction-101.html"
         },
         {
-            "src": "/notes-on-software-architecture",
-            "dest": "/notes-on-software-architecture.html"
-        },
-        {
             "src": "/hello-world",
             "dest": "/hello-world.html"
         },
         {
+            "src": "/notes-on-software-architecture",
+            "dest": "/notes-on-software-architecture.html"
+        },
+        {
             "src": "/performance-101",
             "dest": "/performance-101.html"
+        },
+        {
+            "src": "/sse-vs-websockets-vs-polling",
+            "dest": "/sse-vs-websockets-vs-polling.html"
         },
         {
             "src": "/react-hooks-vs-fp",
