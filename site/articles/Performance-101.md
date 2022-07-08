@@ -4,7 +4,7 @@
     "pageTitle": "Performance 101",
     "tags": "[]",
     "id": "f303dd64-6a9d-4640-8b64-9a44c30ed39d",
-    "abstract": "I recently published and article on Medium.com related to performance testing."
+    "abstract": "I recently published an article on Medium.com related to performance testing."
 }}
 
 # Performance 101
