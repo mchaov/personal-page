@@ -9,12 +9,12 @@
 
 # Performance 101
 
-This article has been in coception for about 1 year now. It started with a podcast, then it became a lighting talk, it evolved into a full 1 hour lecture and now will remain written as an article.
+This article has been in conception for about 1 year now. It started with a podcast, then it became a lighting talk, it evolved into a full 1 hour lecture and now will remain written as an article.
 
 The evolution of this text from latest to earliest:
 
-- [Performance 101](https://medium.com/draftkings-engineering/performance-101-4def30e77c47)
+- 6th of July 2022 [Performance 101](https://medium.com/draftkings-engineering/performance-101-4def30e77c47)
 - [P101 at JSTalks](https://www.youtube.com/watch?v=Sl7sgO0Wc-k&t=3371s)
 - [P101 at HackConf](https://www.youtube.com/watch?v=1fRciFbJtdo)
 - [P101 at SofiaJS](https://www.youtube.com/watch?v=jifESmclNAI)
-- [The original SoftUni podcast](https://softuni.bg/trainings/3045/it-talks-softuni-podcast-martin-chaov)
+- 2nd June 2020 [The original SoftUni podcast](https://softuni.bg/trainings/3045/it-talks-softuni-podcast-martin-chaov)
