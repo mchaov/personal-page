@@ -9,4 +9,4 @@
 
 # SSE vs WebSockets vs Polling
 
-This article: "[Using SSE Instead Of WebSockets For Unidirectional Data Flow Over HTTP/2](https://www.smashingmagazine.com/2018/02/sse-websockets-data-flow-http2/)" explores the differences between 3 approaches for FE to BE communication. It is from a past where SSE was going to take over other methods for streaming. Nowadays things a different. SSE wasn't picked by the developers -> it just wasn't needed as is. People who needed streaming didn't need a pre-defined text based protocol. Everybody wanted their own thing.
+This article: "[Using SSE Instead Of WebSockets For Unidirectional Data Flow Over HTTP/2](https://www.smashingmagazine.com/2018/02/sse-websockets-data-flow-http2/)" explores the differences between 3 approaches for FE to BE communication. It is from a past where SSE was going to take over other methods for streaming. Nowadays things are different. SSE wasn't picked by the developers -> it just wasn't needed as is. People who needed streaming didn't need a pre-defined text based protocol. Everybody wanted their own thing.
