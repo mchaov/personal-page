@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="description" content="Insights from my experience with managing WebSocket API in large-scale applications. I discuss the challenges of state management, load balancing, security, backpressure, and protocol efficiency, providing a comprehensive view of practical considerations and solutions. This article is intended for developers and system architects to understand the complexities and best practices for effectively implementing WebSocket API in high-demand environments." />
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="MobileOptimized" content="320" />
+    <title>mchaov.net | Lessons Learned WebSocketAPI at scale</title>
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="stylesheet" type="text/css" href="/css/main.css" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Lessons Learned WebSocketAPI at scale" />
+    <meta property="og:description" content="Insights from my experience with managing WebSocket API in large-scale applications. I discuss the challenges of state management, load balancing, security, backpressure, and protocol efficiency, providing a comprehensive view of practical considerations and solutions. This article is intended for developers and system architects to understand the complexities and best practices for effectively implementing WebSocket API in high-demand environments." />
+    <meta property="og:image" content="https://mchaov.net/i/profile-2.jpg" />
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Lessons Learned WebSocketAPI at scale",
+      "image": ["https://mchaov.net/i/profile-2.jpg"],
+      "datePublished": "Sat, 18 Nov 2023 20:52:50 GMT",
+      "author": [{
+          "@type": "Person",
+          "name": "Martin Chaov",
+          "url": "https://mchaov.net"
+        }]
+    }
+    </script>
+
+  </head>
+
+  <body>
+    <div class="main"><header class="main-header">
+    <h1>Martin Chaov chasing bits...</h1>
+</header> <menu class="main-menu">
+    <a href="/">Home</a> |
+    <a target="_blank" rel="noopener" href="https://github.com/mchaov">GitHub</a> |
+    <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/martin-chaov-79912910/">LinkedIn</a> |
+    <a target="_blank" rel="noopener" href="https://twitter.com/raziel_pld">Twitter</a> |
+    <a target="_blank" rel="noopener" href="https://www.facebook.com/martin.chaov">Facebook</a>
+</menu> <article class="markdown-body"><p></p>
+        <h1 id="lessons-learned-websocketapi-at-scale">Lessons Learned WebSocketAPI at scale</h1>
+<p>In <a href="https://medium.com/draftkings-engineering/lessons-learned-websocketapi-at-scale-604617a54cdb">&quot;Lessons Learned: WebSocketAPI at Scale,&quot;</a> I delve into the complexities of using WebSocket API in large-scale applications, discussing the various challenges and lessons learned at DraftKings. I begin by explaining the importance of WebSocket for real-time, low-latency communication in diverse applications, from chat services to financial and IoT applications. The article highlights key challenges, including state management, where maintaining client connection states becomes resource-intensive, and load balancing, which is crucial for managing long-lived WebSocket connections.</p>
+<p>I address the nuances of network and application security, emphasizing the use of encryption, authentication, and secure protocols like wss://. A significant portion of the discussion revolves around backpressure, where I describe how systems can become overwhelmed by data volumes, and the need for strategies like data compaction, buffering, and message dropping to mitigate this.</p>
+<p>The article also explores protocol efficiency, focusing on minimizing bandwidth consumption, reducing latency, and managing overhead. I emphasize the need for efficient communication protocols and the careful handling of WebSocket traffic to ensure optimal performance.</p>
+<p>In conclusion, I provide insights into application performance monitoring, underscoring the importance of tracking metrics like latency, packet loss, and resource usage. This comprehensive overview is aimed at helping developers and system architects navigate the challenges of implementing WebSocket APIs effectively in high-scale and high-performance environments.</p>
+
+    </article> <footer class="main-footer"></footer></div>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-84011057-1"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "UA-84011057-1");
+    </script>
+  </body>
+</html>
