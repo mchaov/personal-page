@@ -18,32 +18,40 @@
             "dest": "/abstraction-101.html"
         },
         {
-            "src": "/lessons-learned-websocketapi-at-scale",
-            "dest": "/lessons-learned-websocketapi-at-scale.html"
-        },
-        {
             "src": "/hello-world",
             "dest": "/hello-world.html"
         },
         {
-            "src": "/mastering-feature-flags-types-of-flags",
-            "dest": "/mastering-feature-flags-types-of-flags.html"
+            "src": "/mastering-feature-flags-risk-mitigation",
+            "dest": "/mastering-feature-flags-risk-mitigation.html"
+        },
+        {
+            "src": "/lessons-learned-websocketapi-at-scale",
+            "dest": "/lessons-learned-websocketapi-at-scale.html"
         },
         {
             "src": "/mastering-feature-flags-life-cycle",
             "dest": "/mastering-feature-flags-life-cycle.html"
         },
         {
+            "src": "/mastering-feature-flags-testing-feature-flags",
+            "dest": "/mastering-feature-flags-testing-feature-flags.html"
+        },
+        {
             "src": "/mastering-feature-flags-the-basics",
             "dest": "/mastering-feature-flags-the-basics.html"
         },
         {
-            "src": "/optimizing-web-ui-performance",
-            "dest": "/optimizing-web-ui-performance.html"
+            "src": "/mastering-feature-flags-types-of-flags",
+            "dest": "/mastering-feature-flags-types-of-flags.html"
         },
         {
             "src": "/notes-on-software-architecture",
             "dest": "/notes-on-software-architecture.html"
+        },
+        {
+            "src": "/optimizing-web-ui-performance",
+            "dest": "/optimizing-web-ui-performance.html"
         },
         {
             "src": "/performance-101",
