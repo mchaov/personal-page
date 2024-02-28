@@ -1,13 +1,13 @@
 !{{
     "dateCreated": 1700339987370,
     "dateUpdated": 1700339987370,
-    "pageTitle": "Mastering Feature Flags The Basics",
+    "pageTitle": "Mastering Feature Flags - The Basics",
     "tags": "[]",
     "id": "ced39456-2cb8-4220-8ebc-2ab6c72d8583",
     "abstract": "This article provides a comprehensive guide to mastering feature flags in software development. It explains the distinction between feature flags and remote configurations, and outlines their use cases and potential pitfalls. The piece emphasizes the need for disciplined testing, documentation, and lifecycle management in the effective use of feature flags."
 }}
 
-# Mastering Feature Flags The Basics
+# Mastering Feature Flags - The Basics
 
 In ["Mastering Feature Flags: The Basics,"](https://medium.com/draftkings-engineering/mastering-feature-flags-the-basics-f292e64a4b4b) I explore the critical role of feature flags (or feature toggles) in modern software development. Feature flags are conditional code statements that enable developers to switch features on or off without redeploying the entire application. This mechanism facilitates continuous delivery, allowing integration of code into the main codebase while selectively hiding new or incomplete features from end-users.
 
