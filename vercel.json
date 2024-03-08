@@ -22,10 +22,6 @@
             "dest": "/hello-world.html"
         },
         {
-            "src": "/mastering-feature-flags-risk-mitigation",
-            "dest": "/mastering-feature-flags-risk-mitigation.html"
-        },
-        {
             "src": "/lessons-learned-websocketapi-at-scale",
             "dest": "/lessons-learned-websocketapi-at-scale.html"
         },
@@ -38,12 +34,16 @@
             "dest": "/mastering-feature-flags-testing-feature-flags.html"
         },
         {
-            "src": "/mastering-feature-flags-the-basics",
-            "dest": "/mastering-feature-flags-the-basics.html"
-        },
-        {
             "src": "/mastering-feature-flags-types-of-flags",
             "dest": "/mastering-feature-flags-types-of-flags.html"
+        },
+        {
+            "src": "/mastering-feature-flags-risk-mitigation",
+            "dest": "/mastering-feature-flags-risk-mitigation.html"
+        },
+        {
+            "src": "/mastering-feature-flags-the-basics",
+            "dest": "/mastering-feature-flags-the-basics.html"
         },
         {
             "src": "/notes-on-software-architecture",
@@ -58,12 +58,12 @@
             "dest": "/performance-101.html"
         },
         {
-            "src": "/qa-part-1",
-            "dest": "/qa-part-1.html"
-        },
-        {
             "src": "/qa-part-2",
             "dest": "/qa-part-2.html"
+        },
+        {
+            "src": "/qa-part-1",
+            "dest": "/qa-part-1.html"
         },
         {
             "src": "/react-hooks-vs-fp",

@@ -123,7 +123,7 @@ The best way to understand a concept is to observe where it fails. We already kn
 
 Indirection – I prefer to call it the "Mario Principle" or let's play "find the right level of abstraction where the problem occurs"!
 
-Something doesn't work... Your code looks fine, and, in that rare case, it is! Turns out it is a web browser bug, how do you solve it? Programming specifically to address a big with one environment means something is wrong with the abstraction you use. This applies to OS bugs, hardware bugs, video drivers, and everything that makes your computer systems work.
+Something doesn't work... Your code looks fine, and, in that rare case, it is! Turns out it is a web browser bug, how do you solve it? Programming specifically to address a bug with one environment means something is wrong with the abstraction you use. This applies to OS bugs, hardware bugs, video drivers, and everything that makes your computer systems work.
 
 **One way of abstractions to fail is for them to leak!**
 
