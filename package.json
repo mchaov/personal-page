@@ -30,5 +30,8 @@
     "recursive-readdir": "2.2.2",
     "uuid": "8.3.0"
   },
+  "engines": {
+    "node": "22.x"
+  },
   "dependencies": {}
 }
