@@ -14,40 +14,36 @@
             "dest": "/index.html"
         },
         {
-            "src": "/abstraction-101",
-            "dest": "/abstraction-101.html"
-        },
-        {
             "src": "/hello-world",
             "dest": "/hello-world.html"
         },
         {
-            "src": "/lessons-learned-websocketapi-at-scale",
-            "dest": "/lessons-learned-websocketapi-at-scale.html"
-        },
-        {
-            "src": "/mastering-feature-flags-life-cycle",
-            "dest": "/mastering-feature-flags-life-cycle.html"
-        },
-        {
-            "src": "/mastering-feature-flags-testing-feature-flags",
-            "dest": "/mastering-feature-flags-testing-feature-flags.html"
-        },
-        {
-            "src": "/mastering-feature-flags-types-of-flags",
-            "dest": "/mastering-feature-flags-types-of-flags.html"
+            "src": "/abstraction-101",
+            "dest": "/abstraction-101.html"
         },
         {
             "src": "/mastering-feature-flags-risk-mitigation",
             "dest": "/mastering-feature-flags-risk-mitigation.html"
         },
         {
+            "src": "/lessons-learned-websocketapi-at-scale",
+            "dest": "/lessons-learned-websocketapi-at-scale.html"
+        },
+        {
+            "src": "/mastering-feature-flags-testing-feature-flags",
+            "dest": "/mastering-feature-flags-testing-feature-flags.html"
+        },
+        {
+            "src": "/mastering-feature-flags-life-cycle",
+            "dest": "/mastering-feature-flags-life-cycle.html"
+        },
+        {
             "src": "/mastering-feature-flags-the-basics",
             "dest": "/mastering-feature-flags-the-basics.html"
         },
         {
-            "src": "/notes-on-software-architecture",
-            "dest": "/notes-on-software-architecture.html"
+            "src": "/mastering-feature-flags-types-of-flags",
+            "dest": "/mastering-feature-flags-types-of-flags.html"
         },
         {
             "src": "/optimizing-web-ui-performance",
@@ -58,12 +54,12 @@
             "dest": "/performance-101.html"
         },
         {
-            "src": "/qa-part-2",
-            "dest": "/qa-part-2.html"
+            "src": "/notes-on-software-architecture",
+            "dest": "/notes-on-software-architecture.html"
         },
         {
-            "src": "/qa-part-1",
-            "dest": "/qa-part-1.html"
+            "src": "/qa-part-2",
+            "dest": "/qa-part-2.html"
         },
         {
             "src": "/react-hooks-vs-fp",
@@ -72,6 +68,10 @@
         {
             "src": "/sse-vs-websockets-vs-polling",
             "dest": "/sse-vs-websockets-vs-polling.html"
+        },
+        {
+            "src": "/qa-part-1",
+            "dest": "/qa-part-1.html"
         }
     ]
 }
