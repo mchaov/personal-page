@@ -2,7 +2,7 @@
     "dateCreated": 1597528385518,
     "dateUpdated": 1597528385518,
     "pageTitle": "React Hooks vs FP",
-    "tags": "[]",
+    "tags": ["React", "Functional Programming"],
     "id": "427ea99e-376f-493d-94d7-c961ffff7f8e",
     "abstract": "With the release of React 16.8 we got the much anticipated hooks! And immediatelly the whole dev community lost their collective mind about how amazing the hooks are! How much more functional we can write our React components/apps... whatever they are writing. Well, bad news - there is nothing functional about the code that uses hooks..."
 }}

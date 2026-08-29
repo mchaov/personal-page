@@ -2,7 +2,7 @@
     "dateCreated": 1709112049283,
     "dateUpdated": 1709112049283,
     "pageTitle": "Mastering Feature Flags - Testing Feature Flags",
-    "tags": "[]",
+    "tags": ["Feature Flags", "Testing"],
     "id": "7fe9e9a0-8ff6-403e-a763-afee05f9da9f",
     "abstract": "The article outlines a structured testing approach that includes planning, execution, and monitoring to ensure system stability and performance. It addresses the challenges of increased testing complexity and resource strain, advocating for the use of automated testing frameworks and the importance of maintaining a minimal number of flags."
 }}

@@ -2,7 +2,7 @@
     "dateCreated": 1700340498453,
     "dateUpdated": 1700340498453,
     "pageTitle": "Mastering Feature Flags - Life Cycle",
-    "tags": "[]",
+    "tags": ["Feature Flags", "Software Delivery"],
     "id": "293f241a-db87-43e0-8b02-b1680557140b",
     "abstract": "In this article I provide a detailed overview of the life cycle of feature flags in software development. I emphasize the importance of each stage from creation, testing, deployment, activation, monitoring, to decommissioning, outlining best practices for managing these flags. This comprehensive guide is designed to help developers and teams effectively implement and manage feature flags, ensuring their optimal usage and lifecycle management."
 }}

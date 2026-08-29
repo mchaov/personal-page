@@ -2,7 +2,7 @@
     "dateCreated": 1597363374653,
     "dateUpdated": 1597395903230,
     "pageTitle": "Hello World!",
-    "tags": "[]",
+    "tags": ["Static Sites"],
     "id": "87ec0c2b-be17-4259-b6e9-efef5d19ee0e",
     "abstract": "What is a new venture whithout a 'Hello World!' message. This post talks about how this page became reality... also why I did write my own static site generator in the process..."
 }}

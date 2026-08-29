@@ -2,7 +2,7 @@
     "dateCreated": 1700339987370,
     "dateUpdated": 1700339987370,
     "pageTitle": "Mastering Feature Flags - The Basics",
-    "tags": "[]",
+    "tags": ["Feature Flags", "Software Delivery"],
     "id": "ced39456-2cb8-4220-8ebc-2ab6c72d8583",
     "abstract": "This article provides a comprehensive guide to mastering feature flags in software development. It explains the distinction between feature flags and remote configurations, and outlines their use cases and potential pitfalls. The piece emphasizes the need for disciplined testing, documentation, and lifecycle management in the effective use of feature flags."
 }}

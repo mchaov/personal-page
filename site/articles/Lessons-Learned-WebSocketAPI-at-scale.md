@@ -2,7 +2,7 @@
     "dateCreated": 1700340770747,
     "dateUpdated": 1700340770747,
     "pageTitle": "Lessons Learned WebSocketAPI at scale",
-    "tags": "[]",
+    "tags": ["Real-Time Web", "WebSockets", "Scalability"],
     "id": "2df1162c-8241-4707-a6a4-93002212cf23",
     "abstract": "Insights from my experience with managing WebSocket API in large-scale applications. I discuss the challenges of state management, load balancing, security, backpressure, and protocol efficiency, providing a comprehensive view of practical considerations and solutions. This article is intended for developers and system architects to understand the complexities and best practices for effectively implementing WebSocket API in high-demand environments."
 }}

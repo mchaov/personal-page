@@ -2,7 +2,7 @@
     "dateCreated": 1700340370677,
     "dateUpdated": 1700340370677,
     "pageTitle": "Mastering Feature Flags - Types of Flags",
-    "tags": "[]",
+    "tags": ["Feature Flags", "Software Delivery"],
     "id": "85c587c9-0dc5-4d74-a890-d784e1ffaa11",
     "abstract": "In this article, I delve into the various types of feature flags, a critical technique in software development for modifying system behavior without changing code. I discuss the different types of flags – Release, Experimentation, Operational, and Permission – and their significance for effective feature management. This guide is intended for developers, product managers, and system administrators to understand the utility and application of each flag type."
 }}

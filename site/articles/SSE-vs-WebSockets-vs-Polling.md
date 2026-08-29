@@ -2,7 +2,7 @@
     "dateCreated": 1657265841999,
     "dateUpdated": 1657265841999,
     "pageTitle": "SSE vs WebSockets vs Polling",
-    "tags": "[]",
+    "tags": ["Real-Time Web", "WebSockets"],
     "id": "ab1bc3aa-3264-4501-bdb4-a39ba306f069",
     "abstract": "I wrote this article some time ago for SmashingMagazine.com. It explores how SSE compares to WebSockets for streaming data to a client."
 }}

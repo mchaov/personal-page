@@ -2,7 +2,7 @@
     "dateCreated": 1700340692983,
     "dateUpdated": 1700340692983,
     "pageTitle": "Optimizing Web UI Performance",
-    "tags": "[]",
+    "tags": ["Frontend", "Performance"],
     "id": "e8d018a6-24f5-4312-98d2-7580e805f33e",
     "abstract": "I explore the benefits and implementation of lazy rendering in web development. I detail how this approach enhances user interface performance by delaying the initialization or rendering of elements until necessary. My discussion includes practical insights into using the IntersectionObserver API and JavaScript techniques for efficient, responsive web applications."
 }}

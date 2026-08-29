@@ -2,7 +2,7 @@
     "dateCreated": 1700340861117,
     "dateUpdated": 1700340861117,
     "pageTitle": "QA Part 1",
-    "tags": "[]",
+    "tags": ["Quality Assurance"],
     "id": "7bf2aca6-c709-45b0-a4fb-6181c5e6cc5d",
     "abstract": "In &quot;So, you think you do quality assurance? Part 1: Intro to Quality,&quot; I discuss the essence of quality assurance in software development and its impact on the end product. I delve into the concepts of functional and non-functional quality, and the importance of understanding and implementing quality assurance processes in development. This piece serves as an introductory guide for anyone involved in software development to grasp the fundamental aspects and importance of quality in their work."
 }}

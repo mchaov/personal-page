@@ -4,7 +4,7 @@
   "description": "My personal page.",
   "scripts": {
     "build:vercel": "exit 0",
-    "test": "exit 0",
+    "test": "node --test",
     "start": "ws -p 8080 -z -d ./public",
     "articles": "node ./src/index.js",
     "build": "npm run articles && npm run vercel",

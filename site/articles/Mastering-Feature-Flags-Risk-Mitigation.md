@@ -2,7 +2,7 @@
     "dateCreated": 1709112249076,
     "dateUpdated": 1709112249076,
     "pageTitle": "Mastering Feature Flags - Risk Mitigation",
-    "tags": "[]",
+    "tags": ["Feature Flags", "Risk Management"],
     "id": "456236ad-c29e-4fa3-a1ef-1201b7018366",
     "abstract": "The article outlines a structured approach for testing feature flags, highlighting their significance in software development for controlled feature management. It addresses the increased testing requirements and complexity introduced by each flag, advocating for automated testing frameworks and clear definitions of testing scopes."
 }}

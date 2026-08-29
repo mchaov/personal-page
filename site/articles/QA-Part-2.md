@@ -2,7 +2,7 @@
     "dateCreated": 1700340867939,
     "dateUpdated": 1700340867939,
     "pageTitle": "QA Part 2",
-    "tags": "[]",
+    "tags": ["Quality Assurance", "Metrics"],
     "id": "63197529-6e22-4e4e-acce-8bbb5e5ff4cc",
     "abstract": "In my article, &quot;So, you think you do quality assurance? Part 2: Advanced Quality,&quot; I delve deeper into the advanced aspects of quality assurance in software development, focusing on metrics and KPIs. I discuss how measuring and re-evaluating the software development lifecycle (SDLC) process using specific metrics can lead to improved efficiency and quality. This article is an extension of my previous work, aiming to provide a detailed guide for software professionals on optimizing the SDLC process for better quality outcomes."
 }}
