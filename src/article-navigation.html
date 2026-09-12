@@ -1,31 +1,25 @@
 <section class="article-navigation" data-article-navigation hidden>
     <form class="article-filter-form" data-article-filter-form role="search">
-        <label class="article-filter article-filter-search">
-            <span>Search</span>
+        <label class="article-filter-search">
+            <span class="visually-hidden">Search articles</span>
             <input type="search" name="q" placeholder="Search articles" autocomplete="off" />
         </label>
-        <label class="article-filter">
-            <span>Year</span>
-            <select name="year">
-                <option value="">All years</option>
-                {{YEAR_OPTIONS}}
-            </select>
-        </label>
-        <label class="article-filter">
-            <span>Month</span>
-            <select name="month">
-                <option value="">All months</option>
-                {{MONTH_OPTIONS}}
-            </select>
-        </label>
-        <button class="article-filter-clear" type="reset" disabled>Clear filters</button>
-        <details class="article-tag-filter" data-article-tag-filter>
-            <summary>Tags <span data-selected-tag-count></span></summary>
-            <fieldset>
-                <legend class="visually-hidden">Filter by tags</legend>
-                <div class="article-tag-options">{{TAG_OPTIONS}}</div>
-            </fieldset>
+        <details class="article-filters" data-article-tag-filter>
+            <summary>Filters<span data-selected-tag-count></span></summary>
+            <div class="article-filter-options">
+                <div class="article-date-filters">
+                    <label>Year<select name="year"><option value="">All years</option>{{YEAR_OPTIONS}}</select></label>
+                    <label>Month<select name="month"><option value="">All months</option>{{MONTH_OPTIONS}}</select></label>
+                </div>
+                <fieldset>
+                    <legend>Tags</legend>
+                    <div class="article-tag-options">{{TAG_OPTIONS}}</div>
+                </fieldset>
+            </div>
         </details>
+        <div class="article-filter-status" data-filter-status hidden>
+            <p data-article-result-count aria-live="polite"></p>
+            <button type="reset" disabled>Clear filters</button>
+        </div>
     </form>
-    <p class="article-result-count" data-article-result-count aria-live="polite"></p>
 </section>

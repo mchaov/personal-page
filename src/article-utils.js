@@ -75,9 +75,24 @@ function getDateParts(value) {
     };
 }
 
+// Ignore sentence punctuation inside quoted titles and dots inside domain names.
+function splitAbstract(abstract) {
+    let quoted = false;
+    for (const match of abstract.matchAll(/&quot;|&#34;|"|[.!?](?=\s|$)/g)) {
+        if (["&quot;", "&#34;", '"'].includes(match[0])) {
+            quoted = !quoted;
+        } else if (!quoted) {
+            const end = match.index + 1;
+            return [abstract.slice(0, end), abstract.slice(end)];
+        }
+    }
+    return [abstract, ""];
+}
+
 module.exports = {
     MONTH_NAMES,
     getDateParts,
     normalizeTags,
-    slugifyTag
+    slugifyTag,
+    splitAbstract
 };

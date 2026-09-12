@@ -1,0 +1,9 @@
+/* github.com style (c) Vasily Polovnyov. BSD license: /css/LICENSE.txt. */
+.hljs-comment { color: #998; font-style: italic; }
+.hljs-keyword { color: #333; font-weight: bold; }
+.hljs-subst { color: #333; }
+.hljs-number, .hljs-literal { color: #008080; }
+.hljs-string { color: #d14; }
+.hljs-title { color: #900; font-weight: bold; }
+.hljs-regexp { color: #009926; }
+.hljs-built_in { color: #0086b3; }

@@ -65,6 +65,7 @@ function initArticleNavigation(doc, win) {
     const tagCount = form.querySelector("[data-selected-tag-count]");
     const tagInputs = [...form.querySelectorAll("input[name=tag]")];
     const resultCount = navigation.querySelector("[data-article-result-count]");
+    const filterStatus = navigation.querySelector("[data-filter-status]");
     const emptyState = doc.querySelector("[data-article-empty]");
     const cards = [...doc.querySelectorAll("[data-article-card]")];
 
@@ -147,13 +148,15 @@ function initArticleNavigation(doc, win) {
             }
         });
 
-        resultCount.textContent = `${visibleCount} ${visibleCount === 1 ? "article" : "articles"}`;
+        resultCount.textContent = `${visibleCount} of ${articles.length} articles`;
         emptyState.hidden = visibleCount !== 0;
-        tagCount.textContent = filters.tags.length ? `(${filters.tags.length} selected)` : "";
+        const activeFilters = filters.tags.length + Number(!!filters.year) + Number(!!filters.month);
+        tagCount.textContent = activeFilters ? ` (${activeFilters})` : "";
         clearButton.disabled = !filters.query
             && !filters.tags.length
             && !filters.year
             && !filters.month;
+        filterStatus.hidden = clearButton.disabled;
         updateLocation(filters);
     }
 
@@ -171,6 +174,7 @@ function initArticleNavigation(doc, win) {
     }
 
     updateMonthOptions();
+    tagDetails.open = !!(yearSelect.value || monthSelect.value || tagInputs.some(input => input.checked));
     navigation.hidden = false;
     applyFilters();
 
